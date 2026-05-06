@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transformez votre bien en expérience Airbnb d'exception",
+    "subtitle": "Aménagement · Rénovation · Photos Pro à Marrakech",
+    "cta_projects": "Voir nos projets",
+    "cta_contact": "Demander un devis"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "De la conception à la livraison, nous gérons tout.",
+    "decoration_title": "Aménagement & Décoration",
+    "decoration_desc": "Conception d'espaces, sélection mobilier, accessoires et luminaires pour un intérieur élégant et fonctionnel.",
+    "renovation_title": "Rénovation Complète",
+    "renovation_desc": "Travaux complets, suivi de chantier et livraison clé-en-main. Nous gérons chaque détail pour vous.",
+    "airbnb_title": "Airbnb Clé-en-Main",
+    "airbnb_desc": "Aménagement optimisé pour la location courte durée + photos professionnelles + optimisation de votre listing."
+  },
+  "whyus": {
+    "title": "Pourquoi Homestage ?",
+    "subtitle": "Une expertise unique au service de votre rentabilité.",
+    "photos_title": "Photos Pro Incluses",
+    "photos_desc": "Chaque projet est livré avec un shooting photo professionnel pour maximiser vos réservations.",
+    "marrakech_title": "Experts Marrakech",
+    "marrakech_desc": "Une connaissance approfondie du marché locatif marrakchi et de ses exigences.",
+    "clef_title": "Clé-en-Main",
+    "clef_desc": "Un seul interlocuteur de A à Z. Vous partez, vous revenez, c'est prêt.",
+    "suivi_title": "Suivi Personnalisé",
+    "suivi_desc": "Accompagnement continu, reporting régulier et disponibilité pour toutes vos questions."
+  },
+  "projects_preview": {
+    "title": "Projets Récents",
+    "subtitle": "Quelques réalisations qui parlent pour nous.",
+    "see_all": "Voir tous nos projets",
+    "type_airbnb": "Airbnb",
+    "type_renovation": "Rénovation",
+    "type_decoration": "Décoration"
+  },
+  "contact": {
+    "title": "Démarrons votre projet",
+    "subtitle": "Parlez-nous de votre bien et nous vous répondons sous 24h.",
+    "name": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "project_type": "Type de projet",
+    "project_type_placeholder": "Sélectionnez un type",
+    "project_airbnb": "Airbnb Clé-en-Main",
+    "project_renovation": "Rénovation Complète",
+    "project_decoration": "Aménagement & Décoration",
+    "budget": "Budget estimé",
+    "budget_placeholder": "Sélectionnez une tranche",
+    "budget_1": "Moins de 50 000 MAD",
+    "budget_2": "50 000 – 150 000 MAD",
+    "budget_3": "150 000 – 300 000 MAD",
+    "budget_4": "Plus de 300 000 MAD",
+    "message": "Message (optionnel)",
+    "submit": "Envoyer ma demande",
+    "success": "Votre demande a bien été envoyée. Nous vous répondrons sous 24h.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "tagline": "Aménagement & Rénovation Airbnb à Marrakech",
+    "address": "Marrakech, Maroc",
+    "rights": "Tous droits réservés."
+  },
+  "projects_page": {
+    "title": "Nos Projets",
+    "subtitle": "Découvrez nos réalisations à Marrakech.",
+    "filter_all": "Tous",
+    "filter_airbnb": "Airbnb",
+    "filter_renovation": "Rénovation",
+    "filter_decoration": "Décoration",
+    "surface": "Surface",
+    "location": "Localisation",
+    "year": "Année"
+  },
+  "project_detail": {
+    "back": "Retour aux projets",
+    "cta_title": "Vous avez un projet similaire ?",
+    "cta_desc": "Contactez-nous pour discuter de votre bien et obtenir un devis personnalisé.",
+    "cta_button": "Nous contacter"
+  }
+}

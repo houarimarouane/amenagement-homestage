@@ -1,0 +1,76 @@
+"use client";
+
+import { useState } from "react";
+import type { Project, ProjectType } from "@/types/project";
+import ProjectCard from "@/components/ui/ProjectCard";
+
+interface ProjectsGridProps {
+  projects: Project[];
+  locale: string;
+  translations: {
+    filter_all: string;
+    filter_airbnb: string;
+    filter_renovation: string;
+    filter_decoration: string;
+    type_airbnb: string;
+    type_renovation: string;
+    type_decoration: string;
+  };
+}
+
+type FilterType = ProjectType | "all";
+
+export default function ProjectsGrid({
+  projects,
+  locale,
+  translations,
+}: ProjectsGridProps) {
+  const [filter, setFilter] = useState<FilterType>("all");
+
+  const filtered =
+    filter === "all" ? projects : projects.filter((p) => p.type === filter);
+
+  const filters: { key: FilterType; label: string }[] = [
+    { key: "all", label: translations.filter_all },
+    { key: "airbnb", label: translations.filter_airbnb },
+    { key: "renovation", label: translations.filter_renovation },
+    { key: "decoration", label: translations.filter_decoration },
+  ];
+
+  const cardTranslations = {
+    type_airbnb: translations.type_airbnb,
+    type_renovation: translations.type_renovation,
+    type_decoration: translations.type_decoration,
+  };
+
+  return (
+    <>
+      <div className="flex gap-3 justify-center mb-10 flex-wrap">
+        {filters.map(({ key, label }) => (
+          <button
+            key={key}
+            onClick={() => setFilter(key)}
+            className={`px-5 py-2 text-sm font-medium transition-colors cursor-pointer ${
+              filter === key
+                ? "bg-[#C9A96E] text-white"
+                : "border border-[#1A1A1A]/15 text-[#6B6B6B] hover:border-[#C9A96E] hover:text-[#C9A96E]"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filtered.map((project) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            locale={locale}
+            translations={cardTranslations}
+          />
+        ))}
+      </div>
+    </>
+  );
+}

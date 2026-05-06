@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transform your property into an exceptional Airbnb experience",
+    "subtitle": "Interior Design · Renovation · Pro Photos in Marrakech",
+    "cta_projects": "See our projects",
+    "cta_contact": "Get a quote"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "From concept to delivery, we handle everything.",
+    "decoration_title": "Interior Design & Decoration",
+    "decoration_desc": "Space planning, furniture selection, accessories and lighting for an elegant and functional interior.",
+    "renovation_title": "Full Renovation",
+    "renovation_desc": "Complete construction work, site supervision and turnkey delivery. We manage every detail for you.",
+    "airbnb_title": "Airbnb Turnkey",
+    "airbnb_desc": "Optimized short-term rental setup + professional photography + listing optimization."
+  },
+  "whyus": {
+    "title": "Why Homestage?",
+    "subtitle": "Unique expertise at the service of your profitability.",
+    "photos_title": "Pro Photos Included",
+    "photos_desc": "Every project is delivered with a professional photo shoot to maximize your bookings.",
+    "marrakech_title": "Marrakech Experts",
+    "marrakech_desc": "Deep knowledge of the Marrakech rental market and its requirements.",
+    "clef_title": "Turnkey Service",
+    "clef_desc": "One point of contact from A to Z. You leave, you come back, it's ready.",
+    "suivi_title": "Personalized Follow-up",
+    "suivi_desc": "Ongoing support, regular reporting and availability for all your questions."
+  },
+  "projects_preview": {
+    "title": "Recent Projects",
+    "subtitle": "A few achievements that speak for themselves.",
+    "see_all": "See all our projects",
+    "type_airbnb": "Airbnb",
+    "type_renovation": "Renovation",
+    "type_decoration": "Decoration"
+  },
+  "contact": {
+    "title": "Let's start your project",
+    "subtitle": "Tell us about your property and we'll get back to you within 24 hours.",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "project_type": "Project type",
+    "project_type_placeholder": "Select a type",
+    "project_airbnb": "Airbnb Turnkey",
+    "project_renovation": "Full Renovation",
+    "project_decoration": "Interior Design & Decoration",
+    "budget": "Estimated budget",
+    "budget_placeholder": "Select a range",
+    "budget_1": "Less than 50,000 MAD",
+    "budget_2": "50,000 – 150,000 MAD",
+    "budget_3": "150,000 – 300,000 MAD",
+    "budget_4": "More than 300,000 MAD",
+    "message": "Message (optional)",
+    "submit": "Send my request",
+    "success": "Your request has been sent. We'll get back to you within 24 hours.",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "tagline": "Airbnb Interior Design & Renovation in Marrakech",
+    "address": "Marrakech, Morocco",
+    "rights": "All rights reserved."
+  },
+  "projects_page": {
+    "title": "Our Projects",
+    "subtitle": "Explore our work in Marrakech.",
+    "filter_all": "All",
+    "filter_airbnb": "Airbnb",
+    "filter_renovation": "Renovation",
+    "filter_decoration": "Decoration",
+    "surface": "Area",
+    "location": "Location",
+    "year": "Year"
+  },
+  "project_detail": {
+    "back": "Back to projects",
+    "cta_title": "Do you have a similar project?",
+    "cta_desc": "Contact us to discuss your property and get a personalized quote.",
+    "cta_button": "Contact us"
+  }
+}
