@@ -6,8 +6,9 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Transform your property into an exceptional Airbnb experience",
-    "subtitle": "Interior Design · Renovation · Pro Photos in Marrakech",
+    "title": "Airbnb Design",
+    "title_price": "From €7,500",
+    "subtitle": "Transform your property into an exceptional Airbnb experience",
     "cta_projects": "See our projects",
     "cta_contact": "Get a quote"
   },
@@ -65,7 +66,7 @@
   },
   "footer": {
     "tagline": "Airbnb Interior Design & Renovation in Marrakech",
-    "address": "Marrakech, Morocco",
+    "address": "Guéliz, Rue de la Liberté, Immeuble Dani, Bureau 16, Marrakech",
     "rights": "All rights reserved."
   },
   "projects_page": {
@@ -78,6 +79,46 @@
     "surface": "Area",
     "location": "Location",
     "year": "Year"
+  },
+  "airbnb": {
+    "badge": "Take advantage of the Homestage offer",
+    "label": "For new property owners",
+    "title": "Your property is empty. Travellers make their choice in 3 seconds.",
+    "subtitle": "On Airbnb or Booking, the decision is visual, instant and emotional. A standard apartment no longer cuts it in a competitive market like Marrakech. We don't decorate — we create immersive experiences that trigger the booking.",
+    "stat1_value": "30+",
+    "stat1_label": "Completed projects in Marrakech",
+    "stat2_value": "84%",
+    "stat2_label": "Average occupancy rate",
+    "stat3_value": "4 wks",
+    "stat3_label": "From keys to live listing",
+    "approach_label": "Our approach",
+    "approach_title": "Design + Construction. Where others stop, we keep going.",
+    "approach_body": "An 'Instagrammable' design means nothing if the floors wear out in 3 months. Combining interior design with BTP (construction) expertise, we handle structural issues — damp, electrics, plumbing — that decorators ignore. The result: a property that looks stunning and stays that way after hundreds of stays.",
+    "adv1": "Premium design that triggers instant desire — +20% to +40% on nightly rate",
+    "adv2": "Construction-grade materials built for high-turnover use (flooring, fabrics, reinforced joinery)",
+    "adv3": "Full remote site monitoring — photo and video updates at every stage, approve from abroad",
+    "adv4": "Airbnb listing + pro photos included — your listing rises in the algorithm from day one",
+    "process_label": "How it works",
+    "process_title": "From bare apartment to first booking",
+    "s1_title": "Audit & Positioning",
+    "s1_desc": "Property visit, local competitor analysis, potential assessment. We offer visits to our live worksites.",
+    "s2_title": "Design & 3D Moodboard",
+    "s2_desc": "A unique visual concept — Bohemian, Arty, or Modern-Moroccan. 3D projection and style validation with you.",
+    "s3_title": "Construction & Renovation",
+    "s3_desc": "Our teams handle paint, electrics, lighting and floors. Real-time photo/video updates from abroad.",
+    "s4_title": "Furnishing & Home Staging",
+    "s4_desc": "Furniture, lighting and décor installation. What costs little but produces a massive 'Wow' effect.",
+    "s5_title": "Pro Shoot + Go Live",
+    "s5_desc": "Professional photo session + optimised Airbnb listing creation. Your property is ready to earn.",
+    "trust_note": "30+ active listings — guest reviews available on request",
+    "trust_listing": "Our Airbnb listings open for review",
+    "cta_label": "Ready to start?",
+    "cta_title": "Turn your property into a rental success.",
+    "testimonial_quote": "\"I handed over the keys to a bare apartment. 4 weeks later it was live and generating revenue.\"",
+    "testimonial_author": "Sarah D. — MRE Investor, Paris",
+    "cta_sub": "Free first consultation · No commitment · Live worksites available to visit",
+    "cta_form": "Get my free quote",
+    "cta_whatsapp": "Message on WhatsApp"
   },
   "project_detail": {
     "back": "Back to projects",

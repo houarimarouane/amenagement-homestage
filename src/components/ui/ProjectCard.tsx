@@ -38,16 +38,16 @@ export default function ProjectCard({ project, locale, translations }: ProjectCa
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4">
-          <span className="bg-[#C9A96E] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
+          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
             {typeLabel}
           </span>
         </div>
       </div>
       <div className="py-4">
-        <h3 className="font-serif text-xl text-[#1A1A1A] group-hover:text-[#C9A96E] transition-colors mb-1">
+        <h3 className="font-serif text-xl text-[#1A1714] group-hover:text-[#7A0D0A] transition-colors mb-1">
           {title}
         </h3>
-        <p className="text-[#6B6B6B] text-sm">
+        <p className="text-[#6B6560] text-sm">
           {project.location} · {project.surface}m²
         </p>
       </div>

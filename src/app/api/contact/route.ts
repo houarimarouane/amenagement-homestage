@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
       await resend.emails.send({
         from: "Homestage <contact@homestage.ma>",
-        to: process.env.CONTACT_EMAIL ?? "hello@homestage.ma",
+        to: process.env.CONTACT_EMAIL ?? "houari.marouane@gmail.com",
         subject: `Nouvelle demande — ${name} (${projectType})`,
         text: `
 Nom: ${name}

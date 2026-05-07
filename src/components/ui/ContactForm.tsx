@@ -48,9 +48,9 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full border border-[#1A1A1A]/15 bg-white px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B]/50 focus:outline-none focus:border-[#C9A96E] transition-colors";
+    "w-full border border-[#E5E0DC] bg-white px-4 py-3 text-sm text-[#1A1714] placeholder:text-[#6B6560]/50 focus:outline-none focus:border-[#7A0D0A] transition-colors";
   const labelClass =
-    "block text-xs font-medium text-[#6B6B6B] uppercase tracking-wider mb-1.5";
+    "block text-xs font-medium text-[#6B6560] uppercase tracking-wider mb-1.5";
   const errorClass = "text-red-500 text-xs mt-1";
 
   return (
@@ -125,18 +125,18 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full bg-[#C9A96E] text-white py-4 font-medium tracking-wide hover:bg-[#b8945a] transition-colors disabled:opacity-60 cursor-pointer"
+        className="w-full bg-[#7A0D0A] text-white py-4 font-medium tracking-wide hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer"
       >
         {status === "loading" ? "Envoi en cours..." : t("submit")}
       </button>
 
       {status === "success" && (
-        <p className="text-green-600 text-sm text-center bg-green-50 py-3 px-4">
+        <p className="text-[#7A0D0A] text-sm text-center bg-[#7A0D0A]/10 border border-[#7A0D0A]/20 py-3 px-4">
           {t("success")}
         </p>
       )}
       {status === "error" && (
-        <p className="text-red-500 text-sm text-center bg-red-50 py-3 px-4">
+        <p className="text-red-600 text-sm text-center bg-red-50 border border-red-200 py-3 px-4">
           {t("error")}
         </p>
       )}

@@ -12,16 +12,16 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const t = await getTranslations("projects_page");
 
   return (
-    <div className="pt-32 pb-24 px-6 bg-[#FAFAF8] min-h-screen">
+    <div className="pt-32 pb-24 px-6 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-[#C9A96E] text-sm font-medium tracking-[0.3em] uppercase mb-3">
+          <p className="text-[#7A0D0A] text-sm font-medium tracking-[0.3em] uppercase mb-3">
             Portfolio
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#1A1A1A] mb-4">
+          <h1 className="font-serif text-4xl md:text-5xl text-[#1A1714] mb-4">
             {t("title")}
           </h1>
-          <p className="text-[#6B6B6B] text-lg">{t("subtitle")}</p>
+          <p className="text-[#6B6560] text-lg">{t("subtitle")}</p>
         </div>
 
         <ProjectsGrid

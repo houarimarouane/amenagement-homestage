@@ -52,8 +52,8 @@ export default function ProjectsGrid({
             onClick={() => setFilter(key)}
             className={`px-5 py-2 text-sm font-medium transition-colors cursor-pointer ${
               filter === key
-                ? "bg-[#C9A96E] text-white"
-                : "border border-[#1A1A1A]/15 text-[#6B6B6B] hover:border-[#C9A96E] hover:text-[#C9A96E]"
+                ? "bg-[#7A0D0A] text-white"
+                : "border border-[#1A1714]/15 text-[#6B6560] hover:border-[#7A0D0A] hover:text-[#7A0D0A]"
             }`}
           >
             {label}

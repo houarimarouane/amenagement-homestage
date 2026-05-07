@@ -38,12 +38,12 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
       : tp("type_decoration");
 
   return (
-    <div className="pt-20 pb-24 bg-[#FAFAF8] min-h-screen">
+    <div className="pt-20 pb-24 bg-white min-h-screen">
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-6 pt-8 mb-8">
         <Link
           href={backHref}
-          className="text-sm text-[#6B6B6B] hover:text-[#C9A96E] transition-colors"
+          className="text-sm text-[#6B6560] hover:text-[#7A0D0A] transition-colors"
         >
           ← {t("back")}
         </Link>
@@ -59,9 +59,9 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-8 left-0 right-0 max-w-7xl mx-auto px-6 text-white">
-          <span className="bg-[#C9A96E] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
+          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
             {typeLabel}
           </span>
           <h1 className="font-serif text-4xl md:text-6xl mt-4">{title}</h1>
@@ -76,7 +76,7 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main content */}
           <div className="lg:col-span-2">
-            <p className="text-[#6B6B6B] text-lg leading-relaxed mb-8">
+            <p className="text-[#6B6560] text-lg leading-relaxed mb-8">
               {description}
             </p>
             <div className="prose max-w-none">
@@ -86,35 +86,35 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white border border-[#1A1A1A]/10 p-6 space-y-5 sticky top-28">
+            <div className="bg-[#FAF8F5] border border-[#E5E0DC] p-6 space-y-5 sticky top-28">
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-[#C9A96E] mb-1">
+                <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Type
                 </p>
-                <p className="text-[#1A1A1A]">{typeLabel}</p>
+                <p className="text-[#1A1714]">{typeLabel}</p>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-[#C9A96E] mb-1">
+                <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Surface
                 </p>
-                <p className="text-[#1A1A1A]">{project.surface} m²</p>
+                <p className="text-[#1A1714]">{project.surface} m²</p>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-[#C9A96E] mb-1">
+                <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Localisation
                 </p>
-                <p className="text-[#1A1A1A]">{project.location}</p>
+                <p className="text-[#1A1714]">{project.location}</p>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-[#C9A96E] mb-1">
+                <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Année
                 </p>
-                <p className="text-[#1A1A1A]">{project.year}</p>
+                <p className="text-[#1A1714]">{project.year}</p>
               </div>
-              <div className="pt-4 border-t border-[#1A1A1A]/10">
+              <div className="pt-4 border-t border-[#E5E0DC]">
                 <Link
                   href={contactHref}
-                  className="block w-full text-center bg-[#C9A96E] text-white py-3 text-sm font-medium hover:bg-[#b8945a] transition-colors"
+                  className="block w-full text-center bg-[#7A0D0A] text-white py-3 text-sm font-medium hover:bg-[#5A0A07] transition-colors"
                 >
                   {t("cta_button")}
                 </Link>
@@ -143,12 +143,12 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
         )}
 
         {/* CTA block */}
-        <div className="mt-16 text-center bg-[#1A1A1A] text-white py-14 px-6">
+        <div className="mt-16 text-center bg-[#1A1714] text-white py-14 px-6">
           <h3 className="font-serif text-3xl mb-3">{t("cta_title")}</h3>
           <p className="text-white/60 mb-6">{t("cta_desc")}</p>
           <Link
             href={contactHref}
-            className="bg-[#C9A96E] text-white px-8 py-4 font-medium hover:bg-[#b8945a] transition-colors inline-block"
+            className="bg-[#7A0D0A] text-white px-8 py-4 font-medium hover:bg-[#5A0A07] transition-colors inline-block"
           >
             {t("cta_button")}
           </Link>

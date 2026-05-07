@@ -19,24 +19,29 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   };
 
   return (
-    <section className="py-24 px-6 bg-[#FAFAF8]">
+    <section className="py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-16">
           <div>
-            <p className="text-[#C9A96E] text-sm font-medium tracking-[0.3em] uppercase mb-3">
+            <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
               Portfolio
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1A]">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1714] leading-tight">
               {t("title")}
             </h2>
-            <p className="text-[#6B6B6B] mt-3">{t("subtitle")}</p>
           </div>
-          <Link
-            href={projectsHref}
-            className="text-sm font-medium text-[#1A1A1A] border-b border-[#C9A96E] pb-1 hover:text-[#C9A96E] transition-colors whitespace-nowrap"
-          >
-            {t("see_all")} →
-          </Link>
+          <div className="flex flex-col justify-end gap-4">
+            <p className="text-[#6B6560] text-lg leading-relaxed">{t("subtitle")}</p>
+            <div>
+              <Link
+                href={projectsHref}
+                className="inline-flex items-center gap-2 text-sm font-medium text-[#1A1714] border-b border-[#7A0D0A] pb-1 hover:text-[#7A0D0A] transition-colors"
+              >
+                {t("see_all")}
+                <span className="text-[#7A0D0A]">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -48,6 +53,15 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
               translations={translations}
             />
           ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <Link
+            href={projectsHref}
+            className="inline-block border border-[#1A1714]/30 text-[#1A1714] px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#5A0A07] hover:text-white hover:border-[#7A0D0A] transition-colors"
+          >
+            {t("see_all")}
+          </Link>
         </div>
       </div>
     </section>

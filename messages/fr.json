@@ -6,8 +6,9 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Transformez votre bien en expérience Airbnb d'exception",
-    "subtitle": "Aménagement · Rénovation · Photos Pro à Marrakech",
+    "title": "Aménagement Airbnb",
+    "title_price": "À partir de 7 500€",
+    "subtitle": "Transformez votre appartement en expérience Airbnb d'exception et gagnez en visibilité",
     "cta_projects": "Voir nos projets",
     "cta_contact": "Demander un devis"
   },
@@ -65,7 +66,7 @@
   },
   "footer": {
     "tagline": "Aménagement & Rénovation Airbnb à Marrakech",
-    "address": "Marrakech, Maroc",
+    "address": "Guéliz, Rue de la Liberté, Immeuble Dani, Bureau 16, Marrakech",
     "rights": "Tous droits réservés."
   },
   "projects_page": {
@@ -78,6 +79,46 @@
     "surface": "Surface",
     "location": "Localisation",
     "year": "Année"
+  },
+  "airbnb": {
+    "badge": "Profitez de l'offre Homestage",
+    "label": "Pour les nouveaux propriétaires",
+    "title": "Votre bien est vide. Vos voyageurs, eux, choisissent en 3 secondes.",
+    "subtitle": "Sur Airbnb ou Booking, le coup de cœur est visuel, immédiat et irrationnel. Un logement standard ne suffit plus à Marrakech. Nous ne faisons pas de la décoration — nous créons des expériences immersives qui déclenchent la réservation.",
+    "stat1_value": "+30",
+    "stat1_label": "Réalisations à Marrakech",
+    "stat2_value": "84 %",
+    "stat2_label": "Taux d'occupation moyen",
+    "stat3_value": "4 sem.",
+    "stat3_label": "De la clé à la mise en ligne",
+    "approach_label": "Notre approche",
+    "approach_title": "Décoration + BTP. Là où les autres s'arrêtent, nous continuons.",
+    "approach_body": "Un design « Instagrammable » ne suffit pas si les sols s'abîment en 3 mois. En tant qu'expertise combinée décoration et BTP, nous gérons les problèmes structurels — humidité, électricité, plomberie — que les simples décorateurs ignorent. Résultat : un bien beau et durable, qui reste impeccable après des centaines de nuitées.",
+    "adv1": "Design premium qui déclenche le coup de cœur immédiat — +20 à +40 % sur le prix à la nuitée",
+    "adv2": "Matériaux BTP résistants à la rotation intensive des voyageurs (sols, tissus, menuiserie renforcée)",
+    "adv3": "Suivi chantier complet à distance — photos et vidéos à chaque étape, validation sans déplacement",
+    "adv4": "Listing Airbnb + photos pro inclus — votre annonce remonte dans l'algorithme dès le premier jour",
+    "process_label": "Comment ça marche",
+    "process_title": "De l'appartement brut à la première réservation",
+    "s1_title": "Audit & Positionnement",
+    "s1_desc": "Visite du bien, analyse de la concurrence locale, définition du potentiel. Nous proposons la visite de nos chantiers en cours.",
+    "s2_title": "Design & Moodboard 3D",
+    "s2_desc": "Création d'un concept visuel unique — Bohème, Arty, Moderne-Marocain. Projection 3D et validation du style avec vous.",
+    "s3_title": "Travaux & Rénovation BTP",
+    "s3_desc": "Nos équipes interviennent sur peinture, électricité, éclairage et sols. Suivi photo/vidéo en temps réel depuis l'étranger.",
+    "s4_title": "Ameublement & Home Staging",
+    "s4_desc": "Installation des meubles, luminaires et petite décoration. Ce qui coûte peu mais produit un effet « Wow » massif.",
+    "s5_title": "Shooting Pro + Mise en ligne",
+    "s5_desc": "Séance photo professionnelle + création du listing Airbnb optimisé. Votre bien est prêt à encaisser.",
+    "trust_note": "+30 listings actifs — avis clients disponibles sur demande",
+    "trust_listing": "Nos listings Airbnb ouverts à la consultation",
+    "cta_label": "Prêt à commencer ?",
+    "cta_title": "Transformez votre propriété en succès locatif.",
+    "testimonial_quote": "« J'ai confié les clés de mon appartement brut. 4 semaines plus tard, il était en ligne et générait des revenus. »",
+    "testimonial_author": "Sarah D. — Investisseur MRE, Paris",
+    "cta_sub": "Premier échange gratuit · Sans engagement · Chantiers disponibles à la visite",
+    "cta_form": "Demander mon devis gratuit",
+    "cta_whatsapp": "Écrire sur WhatsApp"
   },
   "project_detail": {
     "back": "Retour aux projets",
