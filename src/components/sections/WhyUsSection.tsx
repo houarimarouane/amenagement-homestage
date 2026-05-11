@@ -10,7 +10,7 @@ export default function WhyUsSection() {
       desc: t("photos_desc"),
     },
     {
-      val: "84 %",
+      val: "99 %",
       label: t("marrakech_title"),
       desc: t("marrakech_desc"),
     },
@@ -27,7 +27,7 @@ export default function WhyUsSection() {
   ];
 
   return (
-    <section className="bg-white">
+    <section id="whyus" className="scroll-mt-24 bg-white">
       <div className="py-24 px-6 border-b border-[#E5E0DC]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>

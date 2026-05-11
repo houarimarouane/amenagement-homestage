@@ -16,7 +16,7 @@ export default function ProjectCard({ project, locale, translations }: ProjectCa
   const href =
     locale === "fr"
       ? `/projets/${project.slug}`
-      : `/en/projects/${project.slug}`;
+      : `/en/projets/${project.slug}`;
 
   const title = locale === "fr" ? project.title : project.titleEn;
 

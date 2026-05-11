@@ -1,8 +1,11 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
-    "projects": "Projects",
+    "approach": "Our approach",
+    "process": "How it works",
+    "portfolio": "Projects",
+    "offer": "Homestage offer",
+    "whyus": "Why Homestage",
     "contact": "Contact"
   },
   "hero": {

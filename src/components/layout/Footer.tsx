@@ -1,16 +1,26 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export default function Footer() {
-  const t = useTranslations("footer");
+export default async function Footer() {
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
+  const locale = await getLocale();
+  const prefix = locale === "fr" ? "" : "/en";
+
+  const navLinks = [
+    { href: `${prefix}/#approche`, label: tn("approach") },
+    { href: `${prefix}/#processus`, label: tn("process") },
+    { href: `${prefix}/#portfolio`, label: tn("portfolio") },
+    { href: `${prefix}/#offre`, label: tn("offer") },
+    { href: `${prefix}/#whyus`, label: tn("whyus") },
+    { href: `${prefix}/#contact`, label: tn("contact") },
+  ];
 
   return (
     <footer className="bg-[#060605] text-white border-t border-[#1C1816]">
-      {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          {/* Brand */}
           <div className="lg:col-span-1">
             <Image
               src="/logo-white.png"
@@ -46,18 +56,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
             <p className="text-[10px] font-medium text-white/40 mb-5 uppercase tracking-[0.3em]">
               Navigation
             </p>
             <ul className="space-y-3 text-sm">
-              {[
-                { href: "/#services", label: "Services" },
-                { href: "/projets", label: "Projets" },
-                { href: "/#airbnb", label: "Airbnb" },
-                { href: "/#contact", label: "Contact" },
-              ].map((item) => (
+              {navLinks.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -70,7 +74,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <p className="text-[10px] font-medium text-white/40 mb-5 uppercase tracking-[0.3em]">
               Services
@@ -89,7 +92,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact + newsletter */}
           <div>
             <p className="text-[10px] font-medium text-white/40 mb-5 uppercase tracking-[0.3em]">
               Contact
@@ -122,7 +124,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <span>© {new Date().getFullYear()} Homestage. {t("rights")}</span>
           <div className="flex items-center gap-4">

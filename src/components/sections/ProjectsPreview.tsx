@@ -10,7 +10,7 @@ interface ProjectsPreviewProps {
 export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   const t = useTranslations("projects_preview");
   const projects = getAllProjects().slice(0, 3);
-  const projectsHref = locale === "fr" ? "/projets" : "/en/projects";
+  const projectsHref = locale === "fr" ? "/projets" : "/en/projets";
 
   const translations = {
     type_airbnb: t("type_airbnb"),
@@ -19,7 +19,7 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   };
 
   return (
-    <section className="py-28 px-6 bg-white">
+    <section id="portfolio" className="scroll-mt-24 py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-16">
           <div>

@@ -6,7 +6,7 @@ export default function ContactSection() {
   const tAirbnb = useTranslations("airbnb");
 
   return (
-    <>
+    <div id="contact" className="scroll-mt-24">
       {/* CTA band — rouge foncé */}
       <section className="relative py-20 px-6 bg-[#7A0D0A] overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5 pointer-events-none select-none hidden lg:flex items-center justify-end pr-12">
@@ -44,7 +44,7 @@ export default function ContactSection() {
       </section>
 
       {/* Contact section — fond blanc */}
-      <section id="contact" className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             {/* Left — info panel */}
@@ -126,6 +126,6 @@ export default function ContactSection() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

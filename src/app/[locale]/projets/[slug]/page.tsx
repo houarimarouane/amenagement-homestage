@@ -27,7 +27,7 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
 
   const title = locale === "fr" ? project.title : project.titleEn;
   const description = locale === "fr" ? project.description : project.descriptionEn;
-  const backHref = locale === "fr" ? "/projets" : "/en/projects";
+  const backHref = locale === "fr" ? "/projets" : "/en/projets";
   const contactHref = locale === "fr" ? "/#contact" : "/en/#contact";
 
   const typeLabel =
