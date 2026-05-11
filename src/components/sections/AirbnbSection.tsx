@@ -61,7 +61,7 @@ const PHOTOS = [
 export function AirbnbApproachSection() {
   const t = useTranslations("airbnb");
   const approachRef = useReveal();
-  const advantages = [t("adv1"), t("adv2"), t("adv3"), t("adv4")];
+  const approachItems = t.raw("approach_items") as string[];
 
   return (
     <section id="approche" className="scroll-mt-24 py-24 px-6 bg-white">
@@ -78,19 +78,25 @@ export function AirbnbApproachSection() {
             <h2 className="font-serif text-3xl md:text-4xl text-[#1A1714] leading-tight mb-6">
               {t("approach_title")}
             </h2>
+            <p className="text-[#6B6560] leading-relaxed mb-5">
+              {t("approach_p1")}
+            </p>
             <p className="text-[#6B6560] leading-relaxed mb-8">
-              {t("approach_body")}
+              {t("approach_p2")}
             </p>
 
-            <ul className="space-y-4 mb-10">
-              {advantages.map((adv, i) => (
+            <p className="text-[#1A1714] text-sm font-medium mb-4">
+              {t("approach_list_label")}
+            </p>
+            <ul className="space-y-3 mb-10">
+              {approachItems.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="mt-0.5 w-5 h-5 shrink-0 border border-[#7A0D0A] flex items-center justify-center">
                     <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#7A0D0A]" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
                       <path d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </span>
-                  <span className="text-[#1A1714] text-sm leading-relaxed">{adv}</span>
+                  <span className="text-[#1A1714] text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
