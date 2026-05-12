@@ -34,13 +34,10 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             <div className="mb-10 max-w-2xl">
               {/* Grand titre — service */}
               <h1 className="mb-3">
-                <span className="block text-[11px] tracking-[0.45em] uppercase text-[#F8AD9C]/60 mb-5 font-sans">
-                  Marrakech · Clé-en-main
-                </span>
-                <span className="block font-serif text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] leading-[1.1] text-white">
+                <span className="block font-heading text-2xl md:text-3xl lg:text-[2.25rem] xl:text-[2.75rem] leading-[1.1] font-normal text-white">
                   {t("title")}
                 </span>
-                <span className="block font-sans font-light text-2xl md:text-3xl lg:text-[2rem] xl:text-[2.25rem] leading-[1.2] text-[#7A0D0A] mt-1 tracking-wide">
+                <span className="block font-heading text-2xl md:text-3xl lg:text-[2.25rem] xl:text-[2.75rem] leading-[1.1] font-bold text-[#7A0D0A] mt-1">
                   {t("title_price")}
                 </span>
               </h1>
@@ -52,10 +49,12 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 
-              {/* Phrase phare en sous-titre */}
-              <p className="font-serif italic text-xl md:text-2xl lg:text-[1.6rem] text-white/70 leading-relaxed">
-                {t("subtitle")}
-              </p>
+              {/* Sous-titre */}
+              <div className="max-w-xl pl-5 md:pl-6 border-l-[3px] border-[#7A0D0A]">
+                <p className="font-serif italic text-[1.0625rem] sm:text-lg md:text-xl lg:text-[1.35rem] leading-[1.65] md:leading-[1.7] text-white/92 font-normal tracking-[0.01em] [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_4px_24px_rgba(0,0,0,0.45)]">
+                  {t("subtitle")}
+                </p>
+              </div>
             </div>
 
             {/* Projet link */}
@@ -75,7 +74,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 { val: "4 sem.", label: "Clé à mise en ligne" },
               ].map((s) => (
                 <div key={s.label}>
-                  <p className="font-serif text-3xl text-[#7A0D0A] leading-none">{s.val}</p>
+                  <p className="font-heading text-2xl text-[#7A0D0A] leading-none">{s.val}</p>
                   <p className="text-white/40 text-[10px] tracking-[0.2em] uppercase mt-1">{s.label}</p>
                 </div>
               ))}
@@ -103,7 +102,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 <p className="text-[10px] text-[#F8AD9C] tracking-[0.35em] uppercase mb-2">
                   Estimation gratuite
                 </p>
-                <h2 className="text-white text-2xl font-serif leading-tight">
+                <h2 className="text-white text-2xl font-heading leading-tight">
                   Parlez-nous de<br />votre projet
                 </h2>
                 <div className="w-10 h-0.5 bg-[#7A0D0A] mt-3" />

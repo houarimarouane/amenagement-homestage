@@ -65,7 +65,11 @@ export default async function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/50 hover:text-[#7A0D0A] transition-colors"
+                    className={`uppercase tracking-[0.12em] transition-colors ${
+                      item.href.endsWith("#contact")
+                        ? "text-[#7A0D0A] hover:text-[#9A2D28]"
+                        : "text-white/50 hover:text-[#7A0D0A]"
+                    }`}
                   >
                     {item.label}
                   </Link>

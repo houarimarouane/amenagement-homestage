@@ -49,7 +49,7 @@ export default function ServicesSection() {
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
               Nos Services
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1714] leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
               {t("title")}
             </h2>
           </div>
@@ -72,14 +72,14 @@ export default function ServicesSection() {
               >
                 {isFeatured && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <span className="bg-[#1A1714] text-white text-[10px] font-medium tracking-[0.3em] uppercase px-4 py-1.5 whitespace-nowrap">
+                    <span className="bg-foreground text-white text-[10px] font-medium tracking-[0.3em] uppercase px-4 py-1.5 whitespace-nowrap">
                       ★ Offre phare
                     </span>
                   </div>
                 )}
 
                 <div className="flex items-start justify-between mb-8">
-                  <span className={`font-serif text-7xl leading-none select-none transition-colors ${
+                  <span className={`font-heading text-5xl md:text-6xl leading-none select-none transition-colors ${
                     isFeatured
                       ? "text-white/20 group-hover:text-white/30"
                       : "text-[#E8E4E0] group-hover:text-[#F0EBE8]"
@@ -97,8 +97,8 @@ export default function ServicesSection() {
 
                 <div className={`w-8 h-px mb-6 ${isFeatured ? "bg-white/40" : "bg-[#7A0D0A]"}`} />
 
-                <h3 className={`font-serif text-xl mb-4 transition-colors leading-snug ${
-                  isFeatured ? "text-white" : "text-[#1A1714]"
+                <h3 className={`font-heading text-xl mb-4 transition-colors leading-snug ${
+                  isFeatured ? "text-white" : "text-foreground"
                 }`}>
                   {service.title}
                 </h3>

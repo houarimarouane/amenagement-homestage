@@ -53,7 +53,7 @@ export default function ProjectsGrid({
             className={`px-5 py-2 text-sm font-medium transition-colors cursor-pointer ${
               filter === key
                 ? "bg-[#7A0D0A] text-white"
-                : "border border-[#1A1714]/15 text-[#6B6560] hover:border-[#7A0D0A] hover:text-[#7A0D0A]"
+                : "border border-foreground/15 text-[#6B6560] hover:border-[#7A0D0A] hover:text-[#7A0D0A]"
             }`}
           >
             {label}

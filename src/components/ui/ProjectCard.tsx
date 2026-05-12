@@ -44,7 +44,7 @@ export default function ProjectCard({ project, locale, translations }: ProjectCa
         </div>
       </div>
       <div className="py-4">
-        <h3 className="font-serif text-xl text-[#1A1714] group-hover:text-[#7A0D0A] transition-colors mb-1">
+        <h3 className="font-heading text-xl text-foreground group-hover:text-[#7A0D0A] transition-colors mb-1">
           {title}
         </h3>
         <p className="text-[#6B6560] text-sm">

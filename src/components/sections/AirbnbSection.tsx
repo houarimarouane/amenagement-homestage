@@ -54,8 +54,6 @@ const PHOTOS = [
   "https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=800&q=80",
   "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
   "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-  "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800&q=80",
 ];
 
 export function AirbnbApproachSection() {
@@ -69,13 +67,13 @@ export function AirbnbApproachSection() {
         <div
           ref={approachRef}
           data-visible="false"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
         >
           <div>
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
               {t("approach_label")}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#1A1714] leading-tight mb-6">
+            <h2 className="font-heading text-2xl md:text-3xl text-foreground leading-tight mb-6">
               {t("approach_title")}
             </h2>
             <p className="text-[#6B6560] leading-relaxed mb-5">
@@ -85,7 +83,7 @@ export function AirbnbApproachSection() {
               {t("approach_p2")}
             </p>
 
-            <p className="text-[#1A1714] text-sm font-medium mb-4">
+            <p className="text-foreground text-sm font-medium mb-4">
               {t("approach_list_label")}
             </p>
             <ul className="space-y-3 mb-10">
@@ -96,7 +94,7 @@ export function AirbnbApproachSection() {
                       <path d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </span>
-                  <span className="text-[#1A1714] text-sm leading-relaxed">{item}</span>
+                  <span className="text-foreground text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
@@ -109,24 +107,38 @@ export function AirbnbApproachSection() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <div className="row-span-2 overflow-hidden">
-              <img src={PHOTOS[0]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ minHeight: "300px" }} />
-            </div>
-            <div className="overflow-hidden aspect-square">
-              <img src={PHOTOS[1]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="overflow-hidden aspect-square">
-              <img src={PHOTOS[2]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="col-span-2 overflow-hidden" style={{ aspectRatio: "16/7" }}>
-              <img src={PHOTOS[3]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="overflow-hidden aspect-video">
-              <img src={PHOTOS[4]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="overflow-hidden aspect-video">
-              <img src={PHOTOS[5]} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          <div className="w-full flex justify-center px-2 sm:px-4 lg:px-2 mt-4 lg:mt-0">
+            <div className="flex gap-2 sm:gap-3 w-full max-w-md xl:max-w-lg h-[22rem] sm:h-[26rem] lg:h-[30rem] xl:h-[34rem]">
+              <div className="w-1/2 min-h-0 overflow-hidden shrink-0">
+                <img
+                  src={PHOTOS[0]}
+                  alt=""
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="w-1/2 flex flex-col gap-2 min-h-0 min-w-0">
+                <div className="flex-1 min-h-0 overflow-hidden">
+                  <img
+                    src={PHOTOS[1]}
+                    alt=""
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="flex-1 min-h-0 overflow-hidden">
+                  <img
+                    src={PHOTOS[2]}
+                    alt=""
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="flex-1 min-h-0 overflow-hidden">
+                  <img
+                    src={PHOTOS[3]}
+                    alt=""
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -153,7 +165,7 @@ export function AirbnbProcessSection() {
           <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
             {t("process_label")}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#1A1714]">
+          <h2 className="font-heading text-3xl md:text-4xl text-foreground">
             {t("process_title")}
           </h2>
         </div>
@@ -172,7 +184,7 @@ export function AirbnbProcessSection() {
                   {step.num}
                 </span>
                 <div className="w-6 h-px bg-[#7A0D0A]/40 mb-4" />
-                <h3 className="font-serif text-base md:text-lg text-[#1A1714] mb-2 leading-snug">
+                <h3 className="font-heading-titlecase text-base md:text-lg text-foreground mb-2 leading-snug">
                   {step.title}
                 </h3>
                 <p className="text-[#6B6560] text-sm leading-relaxed">{step.desc}</p>
@@ -196,7 +208,7 @@ export function AirbnbProcessSection() {
                 <span className="text-[#7A0D0A]/60 text-[11px] font-medium tracking-[0.35em]">
                   {step.num}
                 </span>
-                <h3 className="font-serif text-lg text-[#1A1714] mt-1 mb-2 leading-snug">
+                <h3 className="font-heading-titlecase text-lg text-foreground mt-1 mb-2 leading-snug">
                   {step.title}
                 </h3>
                 <p className="text-[#6B6560] text-sm leading-relaxed">{step.desc}</p>
@@ -243,7 +255,7 @@ export function AirbnbOfferSection() {
         <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
           {t("label")}
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] text-[#1A1714] leading-tight mb-6 max-w-4xl">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-foreground leading-tight mb-6 max-w-4xl">
           {t("title")}
         </h2>
         <p className="text-[#6B6560] text-lg leading-relaxed max-w-2xl">

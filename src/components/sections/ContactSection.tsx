@@ -17,7 +17,7 @@ export default function ContactSection() {
             <p className="text-white/70 text-[11px] font-medium tracking-[0.4em] uppercase mb-3">
               {tAirbnb("cta_label")}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-white leading-tight max-w-xl">
+            <h2 className="font-heading text-2xl md:text-3xl text-white leading-tight max-w-xl">
               {tAirbnb("cta_title")}
             </h2>
           </div>
@@ -52,7 +52,7 @@ export default function ContactSection() {
               <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
                 Contact
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#1A1714] mb-6 leading-tight">
+              <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-6 leading-tight">
                 {t("title")}
               </h2>
               <p className="text-[#6B6560] leading-relaxed mb-10">{t("subtitle")}</p>
@@ -66,7 +66,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[#1A1714] text-sm font-medium mb-1">Adresse</p>
+                    <p className="text-foreground text-sm font-medium mb-1">Adresse</p>
                     <p className="text-[#6B6560] text-sm leading-relaxed">
                       Guéliz, Rue de la Liberté<br />
                       Immeuble Dani, Bureau 16<br />
@@ -82,7 +82,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[#1A1714] text-sm font-medium mb-1">WhatsApp</p>
+                    <p className="text-foreground text-sm font-medium mb-1">WhatsApp</p>
                     <a
                       href="https://wa.me/212661260719"
                       className="text-[#7A0D0A] text-sm hover:text-[#7A0D0A] transition-colors font-medium"
@@ -99,7 +99,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[#1A1714] text-sm font-medium mb-1">Instagram</p>
+                    <p className="text-foreground text-sm font-medium mb-1">Instagram</p>
                     <a
                       href="https://instagram.com"
                       target="_blank"

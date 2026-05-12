@@ -102,16 +102,16 @@ export default function HeroForm() {
       {/* Project type */}
       <div className="relative">
         <select {...register("projectType")} className={selectClass}>
-          <option value="" className="bg-[#1A1714] text-white/60">
+          <option value="" className="bg-foreground text-white/60">
             Type de projet
           </option>
-          <option value="airbnb" className="bg-[#1A1714] text-white">
+          <option value="airbnb" className="bg-foreground text-white">
             Airbnb Clé-en-Main
           </option>
-          <option value="renovation" className="bg-[#1A1714] text-white">
+          <option value="renovation" className="bg-foreground text-white">
             Rénovation Complète
           </option>
-          <option value="decoration" className="bg-[#1A1714] text-white">
+          <option value="decoration" className="bg-foreground text-white">
             Aménagement & Décoration
           </option>
         </select>

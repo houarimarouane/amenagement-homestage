@@ -64,7 +64,7 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
           <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
             {typeLabel}
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl mt-4">{title}</h1>
+          <h1 className="font-heading text-3xl md:text-5xl mt-4">{title}</h1>
           <p className="text-white/80 mt-2">
             {project.location} · {project.surface}m² · {project.year}
           </p>
@@ -91,25 +91,25 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
                 <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Type
                 </p>
-                <p className="text-[#1A1714]">{typeLabel}</p>
+                <p className="text-foreground">{typeLabel}</p>
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Surface
                 </p>
-                <p className="text-[#1A1714]">{project.surface} m²</p>
+                <p className="text-foreground">{project.surface} m²</p>
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Localisation
                 </p>
-                <p className="text-[#1A1714]">{project.location}</p>
+                <p className="text-foreground">{project.location}</p>
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Année
                 </p>
-                <p className="text-[#1A1714]">{project.year}</p>
+                <p className="text-foreground">{project.year}</p>
               </div>
               <div className="pt-4 border-t border-[#E5E0DC]">
                 <Link
@@ -143,8 +143,8 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
         )}
 
         {/* CTA block */}
-        <div className="mt-16 text-center bg-[#1A1714] text-white py-14 px-6">
-          <h3 className="font-serif text-3xl mb-3">{t("cta_title")}</h3>
+        <div className="mt-16 text-center bg-foreground text-white py-14 px-6">
+          <h3 className="font-heading text-2xl md:text-3xl mb-3">{t("cta_title")}</h3>
           <p className="text-white/60 mb-6">{t("cta_desc")}</p>
           <Link
             href={contactHref}

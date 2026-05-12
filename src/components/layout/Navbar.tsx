@@ -3,8 +3,9 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
+import { Link as IntlLink, usePathname } from "@/i18n/navigation";
 
 interface NavbarProps {
   locale: string;
@@ -23,10 +24,8 @@ export default function Navbar({ locale }: NavbarProps) {
   }, []);
 
   const prefix = locale === "fr" ? "" : "/en";
-  const altLocale = locale === "fr" ? "en" : "fr";
-  const altPath = locale === "fr" ? "/en" : "/";
 
-  const isHomePage = pathname === "/" || pathname === "/en" || pathname === "/en/";
+  const isHomePage = pathname === "/";
   const isLight = !isHomePage || scrolled || menuOpen;
 
   const navItems = [
@@ -46,8 +45,8 @@ export default function Navbar({ locale }: NavbarProps) {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
-          <Link href={`${prefix}/`} className="flex items-center shrink-0">
+        <div className="max-w-7xl mx-auto px-6 h-20 relative flex items-center justify-between gap-4">
+          <Link href={`${prefix}/`} className="flex items-center shrink-0 z-10">
             <Image
               src={isLight ? "/logo-black.png" : "/logo-white.png"}
               alt="Homestage"
@@ -58,46 +57,73 @@ export default function Navbar({ locale }: NavbarProps) {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-3 2xl:gap-4 flex-wrap justify-end flex-1 min-w-0">
+          <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 xl:gap-4 2xl:gap-5 flex-wrap max-w-[min(100%,42rem)] pointer-events-none [&_a]:pointer-events-auto">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[11px] xl:text-xs font-medium transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
-                  isLight ? "text-[#1A1714]" : "text-white"
+                className={`text-[13px] xl:text-sm font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
+                  isLight ? "text-foreground" : "text-white"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
+          </nav>
+
+          <div className="flex items-center gap-2 xl:gap-3 shrink-0 z-10 ml-auto">
             <Link
               href={`${prefix}/#contact`}
-              className="text-[11px] xl:text-xs bg-[#7A0D0A] text-white px-4 xl:px-6 py-2.5 hover:bg-[#5A0A07] transition-colors font-medium tracking-wide whitespace-nowrap"
+              className="hidden lg:inline-flex text-[13px] xl:text-sm bg-[#7A0D0A] text-white px-3 xl:px-5 py-2.5 hover:bg-[#5A0A07] transition-colors font-bold uppercase tracking-[0.12em] whitespace-nowrap"
             >
               {t("contact")}
             </Link>
-          </nav>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href={altPath}
-              className={`text-xs font-medium transition-colors border px-3 py-1 tracking-widest hover:text-[#7A0D0A] hover:border-[#7A0D0A] ${
+            <div
+              className={`flex items-center rounded-md border overflow-hidden text-xs font-bold tracking-widest ${
                 isLight
-                  ? "text-[#1A1714]/70 border-[#1A1714]/20"
-                  : "text-white/70 border-white/20"
+                  ? "border-foreground/20"
+                  : "border-white/25"
               }`}
             >
-              {altLocale.toUpperCase()}
-            </Link>
+              <IntlLink
+                href={pathname}
+                locale="fr"
+                className={`px-2.5 py-1.5 transition-colors ${
+                  locale === "fr"
+                    ? "bg-[#7A0D0A] text-white"
+                    : isLight
+                      ? "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
+                      : "text-white/65 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                FR
+              </IntlLink>
+              <IntlLink
+                href={pathname}
+                locale="en"
+                className={`px-2.5 py-1.5 transition-colors border-l ${
+                  isLight ? "border-foreground/20" : "border-white/25"
+                } ${
+                  locale === "en"
+                    ? "bg-[#7A0D0A] text-white"
+                    : isLight
+                      ? "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
+                      : "text-white/65 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                EN
+              </IntlLink>
+            </div>
 
             <button
               className="lg:hidden p-1"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
-              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-[#1A1714]" : "bg-white"}`} />
-              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-[#1A1714]" : "bg-white"}`} />
-              <span className={`block w-5 h-px transition-all duration-300 ${isLight ? "bg-[#1A1714]" : "bg-white"}`} />
+              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
+              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
+              <span className={`block w-5 h-px transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
             </button>
           </div>
         </div>
@@ -109,7 +135,7 @@ export default function Navbar({ locale }: NavbarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-sm text-[#6B6560] hover:text-[#7A0D0A] transition-colors font-medium"
+                className="text-base uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors font-bold"
               >
                 {item.label}
               </Link>
@@ -117,7 +143,7 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`${prefix}/#contact`}
               onClick={() => setMenuOpen(false)}
-              className="text-sm bg-[#7A0D0A] text-white px-5 py-3 text-center font-medium hover:bg-[#5A0A07] transition-colors"
+              className="text-base bg-[#7A0D0A] text-white px-5 py-3 text-center font-bold uppercase tracking-[0.12em] hover:bg-[#5A0A07] transition-colors"
             >
               {t("contact")}
             </Link>

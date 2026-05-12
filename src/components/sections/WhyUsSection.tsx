@@ -34,8 +34,9 @@ export default function WhyUsSection() {
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-6">
               Notre Différence
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] text-[#1A1714] leading-tight mb-8">
-              {t("title")}
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-foreground leading-tight mb-8">
+              <span className="block">{t("title_line1")}</span>
+              <span className="block">{t("title_line2")}</span>
             </h2>
             <p className="text-[#6B6560] text-lg leading-relaxed max-w-md">
               {t("subtitle")}
@@ -44,7 +45,7 @@ export default function WhyUsSection() {
 
           <div className="lg:pl-10">
             <blockquote className="relative pl-8 border-l-2 border-[#7A0D0A] mb-10">
-              <p className="text-[#1A1714]/75 text-xl font-serif italic leading-relaxed mb-5">
+              <p className="text-foreground/75 text-xl font-serif italic leading-relaxed mb-5">
                 &ldquo;J&apos;ai confié les clés de mon appartement brut. 4 semaines plus tard, il était en ligne et générait des revenus.&rdquo;
               </p>
               <footer className="text-[#7A0D0A] text-sm font-medium tracking-wide">
@@ -59,8 +60,8 @@ export default function WhyUsSection() {
                 { num: "4 sem.", label: "Délai moyen" },
               ].map((s) => (
                 <div key={s.label}>
-                  <p className="font-serif text-3xl text-[#7A0D0A] mb-1 leading-none">{s.num}</p>
-                  <p className="text-[#1A1714]/40 text-[10px] tracking-[0.2em] uppercase">{s.label}</p>
+                  <p className="font-heading text-2xl text-[#7A0D0A] mb-1 leading-none">{s.num}</p>
+                  <p className="text-foreground/40 text-[10px] tracking-[0.2em] uppercase">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -75,8 +76,8 @@ export default function WhyUsSection() {
               key={m.label}
               className="px-8 py-12 group hover:bg-[#FAF8F5] transition-colors duration-300"
             >
-              <p className="font-serif text-5xl text-[#7A0D0A] mb-4 leading-none">{m.val}</p>
-              <h3 className="text-[#1A1714] text-xs font-medium uppercase tracking-[0.2em] mb-3">
+              <p className="font-heading text-4xl md:text-[2.75rem] text-[#7A0D0A] mb-4 leading-none">{m.val}</p>
+              <h3 className="text-foreground text-xs font-medium uppercase tracking-[0.2em] mb-3">
                 {m.label}
               </h3>
               <p className="text-[#6B6560] text-xs leading-relaxed">{m.desc}</p>

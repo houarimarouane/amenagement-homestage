@@ -9,6 +9,7 @@ interface ProjectsPreviewProps {
 
 export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   const t = useTranslations("projects_preview");
+  const tNav = useTranslations("nav");
   const projects = getAllProjects().slice(0, 3);
   const projectsHref = locale === "fr" ? "/projets" : "/en/projets";
 
@@ -24,9 +25,9 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-16">
           <div>
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
-              Portfolio
+              {tNav("portfolio")}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1714] leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
               {t("title")}
             </h2>
           </div>
@@ -35,7 +36,7 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
             <div>
               <Link
                 href={projectsHref}
-                className="inline-flex items-center gap-2 text-sm font-medium text-[#1A1714] border-b border-[#7A0D0A] pb-1 hover:text-[#7A0D0A] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground border-b border-[#7A0D0A] pb-1 hover:text-[#7A0D0A] transition-colors"
               >
                 {t("see_all")}
                 <span className="text-[#7A0D0A]">→</span>
@@ -58,7 +59,7 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
         <div className="mt-14 text-center">
           <Link
             href={projectsHref}
-            className="inline-block border border-[#1A1714]/30 text-[#1A1714] px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#5A0A07] hover:text-white hover:border-[#7A0D0A] transition-colors"
+            className="inline-block border border-foreground/30 text-foreground px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#5A0A07] hover:text-white hover:border-[#7A0D0A] transition-colors"
           >
             {t("see_all")}
           </Link>
