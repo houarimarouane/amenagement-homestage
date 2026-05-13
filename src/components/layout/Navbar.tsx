@@ -45,7 +45,7 @@ export default function Navbar({ locale }: NavbarProps) {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 relative flex items-center justify-between gap-4">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 h-20 relative flex items-center justify-between gap-4">
           <Link href={`${prefix}/`} className="flex items-center shrink-0 z-10">
             <Image
               src={isLight ? "/logo-black.png" : "/logo-white.png"}
@@ -131,7 +131,7 @@ export default function Navbar({ locale }: NavbarProps) {
         </div>
 
         {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-[#E5E0DC] px-6 py-6 flex flex-col gap-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="lg:hidden bg-white border-t border-[#E5E0DC] px-6 sm:px-8 py-6 flex flex-col gap-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
             {navItems.map((item) => (
               <Link
                 key={item.href}

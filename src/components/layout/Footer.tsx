@@ -40,7 +40,7 @@ export default async function Footer() {
   const locale = await getLocale();
   const prefix = locale === "fr" ? "" : "/en";
 
-  const columnTitleClass = "font-heading text-[13px] text-white mb-4";
+  const columnTitleClass = "font-heading text-[13px] text-white mb-5";
 
   const listLinkClass =
     "text-sm text-white/70 hover:text-[#F8AD9C] transition-colors";
@@ -76,10 +76,10 @@ export default async function Footer() {
 
   return (
     <footer className="bg-[#080808] text-white border-t border-white/10">
-      <div className="mx-auto w-full px-8 py-12 md:py-16 2xl:max-w-[1400px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 py-14 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-y-12">
           {/* Colonne marque */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <Image
               src="/logo-white.png"
               alt="Homestage"
@@ -87,7 +87,7 @@ export default async function Footer() {
               height={60}
               className="h-12 w-auto"
             />
-            <p className="text-sm text-white/65 leading-relaxed">{t("tagline")}</p>
+            <p className="text-sm text-white/65 leading-[1.65]">{t("tagline")}</p>
             <div className="flex items-center space-x-4">
               <a
                 href={SOCIAL.facebook}
@@ -128,7 +128,7 @@ export default async function Footer() {
 
           <div>
             <p className={columnTitleClass}>{t("navigation_column")}</p>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {navLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={listLinkClass}>
@@ -141,7 +141,7 @@ export default async function Footer() {
 
           <div>
             <p className={columnTitleClass}>{t("services_column")}</p>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {serviceLinks.map((item) => (
                 <li key={item.href + item.label}>
                   {item.external ? (
@@ -160,7 +160,7 @@ export default async function Footer() {
 
           <div>
             <p className={columnTitleClass}>{t("contact_column")}</p>
-            <ul className="space-y-3 text-sm text-white/70 mb-6">
+            <ul className="space-y-3.5 text-sm text-white/70 mb-8">
               <li className="flex gap-2">
                 <PinIcon className="h-4 w-4 shrink-0 text-white/70 mt-0.5" />
                 <span className="leading-relaxed">{t("address")}</span>
@@ -179,7 +179,7 @@ export default async function Footer() {
               </li>
             </ul>
 
-            <p className="font-heading text-[13px] text-white mt-6 mb-3">{t("newsletter_title")}</p>
+            <p className="font-heading text-[13px] text-white mt-8 mb-4">{t("newsletter_title")}</p>
             <div className="flex border border-white/10 rounded-sm overflow-hidden max-w-md">
               <input
                 type="email"
@@ -198,7 +198,7 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8 flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+        <div className="mt-14 md:mt-16 border-t border-white/10 pt-10 flex flex-col gap-5 md:flex-row md:justify-between md:items-center">
           <p className="text-sm text-white/60">
             © {new Date().getFullYear()} Homestage. {t("rights")}
           </p>
