@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
-/** Renseigner l’URL quand la page existe ; sinon laisser null (icône / lien masqués). */
-const SOCIAL_URLS = {
-  facebook: null as string | null,
-  instagram: "https://instagram.com",
-  x: null as string | null,
-};
+/** Profils à affiner si besoin (pages officielles Homestage). */
+const SOCIAL = {
+  facebook: "https://www.facebook.com",
+  instagram: "https://www.instagram.com",
+  whatsapp: "https://wa.me/212661260719",
+} as const;
 
 function PinIcon({ className }: { className?: string }) {
   return (
@@ -36,19 +36,23 @@ function EnvelopeIcon({ className }: { className?: string }) {
 
 export default async function Footer() {
   const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
   const locale = await getLocale();
   const prefix = locale === "fr" ? "" : "/en";
 
   const columnTitleClass =
-    "text-[11px] font-bold uppercase tracking-[0.28em] text-white mb-6";
+    "text-base sm:text-lg font-extrabold uppercase tracking-[0.18em] text-white mb-6";
 
   const listLinkClass =
     "text-sm text-white/60 hover:text-white transition-colors font-normal";
 
-  const enterpriseLinks = [
-    { label: t("co_about"), href: `${prefix}/#whyus` as const },
-    { label: t("co_properties"), href: "https://www.homestage.ma" as const },
-    { label: t("co_estimation"), href: "https://www.homestage.ma/estimer-mon-bien" as const },
+  const navLinks = [
+    { href: `${prefix}/#approche`, label: tn("approach") },
+    { href: `${prefix}/#processus`, label: tn("process") },
+    { href: `${prefix}/#portfolio`, label: tn("portfolio") },
+    { href: `${prefix}/#offre`, label: tn("offer") },
+    { href: `${prefix}/#whyus`, label: tn("whyus") },
+    { href: `${prefix}/#contact`, label: tn("contact") },
   ];
 
   const serviceLinks = [
@@ -76,67 +80,61 @@ export default async function Footer() {
           {/* Colonne marque */}
           <div className="lg:col-span-1">
             <Image src="/logo-white.png" alt="Homestage" width={200} height={80} className="mb-5 h-auto max-w-[180px]" />
-            <p className="text-sm text-white/70 leading-relaxed mb-8 whitespace-pre-line">{t("tagline")}</p>
-            <div className="flex items-center gap-3">
-              {SOCIAL_URLS.facebook ? (
-                <a
-                  href={SOCIAL_URLS.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
-              ) : null}
-              {SOCIAL_URLS.instagram ? (
-                <a
-                  href={SOCIAL_URLS.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <circle cx="12" cy="12" r="3.5" />
-                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                  </svg>
-                </a>
-              ) : null}
-              {SOCIAL_URLS.x ? (
-                <a
-                  href={SOCIAL_URLS.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-colors"
-                  aria-label="X"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </a>
-              ) : null}
+            <p className="text-sm text-white/70 leading-relaxed mb-8">{t("tagline")}</p>
+            <div className="flex items-center gap-8">
+              <a
+                href={SOCIAL.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                aria-label="Facebook"
+              >
+                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-4h2V9.5C10 7.57 11.57 6 13.5 6H16v4h-1.5c-.83 0-1.5.18-1.5 1V11h3l-.5 4h-2.5v7.95c5.05-.5 9-4.76 9-9.95z" />
+                </svg>
+              </a>
+              <a
+                href={SOCIAL.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <a
+                href={SOCIAL.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                aria-label="WhatsApp"
+              >
+                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.116 1.535 5.845L.057 23.5l5.835-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.031-1.372l-.361-.214-3.735.979.996-3.638-.235-.374A9.863 9.863 0 012.1 12c0-5.467 4.433-9.9 9.9-9.9 5.467 0 9.9 4.433 9.9 9.9 0 5.467-4.433 9.9-9.9 9.9z" />
+                </svg>
+              </a>
             </div>
           </div>
 
-          {/* ENTREPRISE — pas de lien si pas de page (blog, carrières omis) */}
+          {/* NAVIGATION — ancres de la page (aligné sur la barre de menu) */}
           <div>
-            <p className={columnTitleClass}>{t("enterprise_column")}</p>
+            <p className={columnTitleClass}>{t("navigation_column")}</p>
             <ul className="space-y-4">
-              {enterpriseLinks.map((item) => (
+              {navLinks.map((item) => (
                 <li key={item.href}>
-                  {item.href.startsWith("http") ? (
-                    <a href={item.href} target="_blank" rel="noopener noreferrer" className={listLinkClass}>
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link href={item.href} className={listLinkClass}>
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    className={
+                      item.href.endsWith("#contact")
+                        ? "text-sm text-[#7A0D0A] hover:text-[#9A2D28] transition-colors font-normal"
+                        : listLinkClass
+                    }
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

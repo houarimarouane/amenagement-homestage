@@ -81,13 +81,10 @@
     "hero_footnote": "Sans engagement · Réponse sous 24h"
   },
   "footer": {
-    "tagline": "Une offre pour les nouveaux propriétaires à Marrakech.\nPar l'équipe Homestage,\nexpert en services immobiliers\nau Maroc.",
+    "tagline": "Offre pour les nouveaux propriétaires à Marrakech. Un service sur mesure pour partager notre expertise et réussir votre projet.",
     "address": "Guéliz, Rue de la Liberté, Immeuble Dani, Bureau 16, Marrakech",
     "rights": "Tous droits réservés.",
-    "enterprise_column": "ENTREPRISE",
-    "co_about": "À propos",
-    "co_properties": "Propriétés",
-    "co_estimation": "Estimation",
+    "navigation_column": "NAVIGATION",
     "services_column": "SERVICES",
     "contact_column": "CONTACT",
     "contact_email": "contact@homestage.ma",

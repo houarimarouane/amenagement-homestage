@@ -62,7 +62,7 @@ export default function Navbar({ locale }: NavbarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[13px] xl:text-sm font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
+                className={`text-sm xl:text-base font-extrabold uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
                   isLight ? "text-foreground" : "text-white"
                 }`}
               >
@@ -74,7 +74,7 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="flex items-center gap-2 xl:gap-3 shrink-0 z-10 ml-auto">
             <Link
               href={`${prefix}/#contact`}
-              className="hidden lg:inline-flex text-[13px] xl:text-sm bg-[#7A0D0A] text-white px-3 xl:px-5 py-2.5 hover:bg-[#5A0A07] transition-colors font-bold uppercase tracking-[0.12em] whitespace-nowrap"
+              className="hidden lg:inline-flex text-sm xl:text-base bg-[#7A0D0A] text-white px-3 xl:px-5 py-2.5 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap"
             >
               {t("contact")}
             </Link>
@@ -137,7 +137,7 @@ export default function Navbar({ locale }: NavbarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-base uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors font-bold"
+                className="text-base uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors font-extrabold"
               >
                 {item.label}
               </Link>
@@ -176,7 +176,7 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`${prefix}/#contact`}
               onClick={() => setMenuOpen(false)}
-              className="text-base bg-[#7A0D0A] text-white px-5 py-3 text-center font-bold uppercase tracking-[0.12em] hover:bg-[#5A0A07] transition-colors"
+              className="text-base bg-[#7A0D0A] text-white px-5 py-3 text-center font-extrabold uppercase tracking-[0.12em] hover:bg-[#5A0A07] transition-colors"
             >
               {t("contact")}
             </Link>
