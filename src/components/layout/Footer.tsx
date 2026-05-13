@@ -40,11 +40,10 @@ export default async function Footer() {
   const locale = await getLocale();
   const prefix = locale === "fr" ? "" : "/en";
 
-  const columnTitleClass =
-    "text-base sm:text-lg font-extrabold uppercase tracking-[0.18em] text-white mb-6";
+  const columnTitleClass = "font-heading text-[13px] text-white mb-4";
 
   const listLinkClass =
-    "text-sm text-white/60 hover:text-white transition-colors font-normal";
+    "text-sm text-white/70 hover:text-[#F8AD9C] transition-colors";
 
   const navLinks = [
     { href: `${prefix}/#approche`, label: tn("approach") },
@@ -73,23 +72,31 @@ export default async function Footer() {
 
   const contactEmail = t("contact_email");
 
+  const socialLinkClass = "text-white/70 hover:text-[#F8AD9C] transition-colors";
+
   return (
-    <footer className="bg-black text-white border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 pb-14 border-b border-white/10">
+    <footer className="bg-[#080808] text-white border-t border-white/10">
+      <div className="mx-auto w-full px-8 py-12 md:py-16 2xl:max-w-[1400px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Colonne marque */}
-          <div className="lg:col-span-1">
-            <Image src="/logo-white.png" alt="Homestage" width={200} height={80} className="mb-5 h-auto max-w-[180px]" />
-            <p className="text-sm text-white/70 leading-relaxed mb-8">{t("tagline")}</p>
-            <div className="flex items-center gap-8">
+          <div className="space-y-4">
+            <Image
+              src="/logo-white.png"
+              alt="Homestage"
+              width={240}
+              height={60}
+              className="h-12 w-auto"
+            />
+            <p className="text-sm text-white/65 leading-relaxed">{t("tagline")}</p>
+            <div className="flex items-center space-x-4">
               <a
                 href={SOCIAL.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                className={socialLinkClass}
                 aria-label="Facebook"
               >
-                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
                   <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-4h2V9.5C10 7.57 11.57 6 13.5 6H16v4h-1.5c-.83 0-1.5.18-1.5 1V11h3l-.5 4h-2.5v7.95c5.05-.5 9-4.76 9-9.95z" />
                 </svg>
               </a>
@@ -97,10 +104,10 @@ export default async function Footer() {
                 href={SOCIAL.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                className={socialLinkClass}
                 aria-label="Instagram"
               >
-                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
@@ -108,10 +115,10 @@ export default async function Footer() {
                 href={SOCIAL.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#7A0D0A] transition-colors p-1"
+                className={socialLinkClass}
                 aria-label="WhatsApp"
               >
-                <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" aria-hidden>
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                   <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.116 1.535 5.845L.057 23.5l5.835-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.031-1.372l-.361-.214-3.735.979.996-3.638-.235-.374A9.863 9.863 0 012.1 12c0-5.467 4.433-9.9 9.9-9.9 5.467 0 9.9 4.433 9.9 9.9 0 5.467-4.433 9.9-9.9 9.9z" />
                 </svg>
@@ -119,20 +126,12 @@ export default async function Footer() {
             </div>
           </div>
 
-          {/* NAVIGATION — ancres de la page (aligné sur la barre de menu) */}
           <div>
             <p className={columnTitleClass}>{t("navigation_column")}</p>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {navLinks.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={
-                      item.href.endsWith("#contact")
-                        ? "text-sm text-[#7A0D0A] hover:text-[#9A2D28] transition-colors font-normal"
-                        : listLinkClass
-                    }
-                  >
+                  <Link href={item.href} className={listLinkClass}>
                     {item.label}
                   </Link>
                 </li>
@@ -140,10 +139,9 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* SERVICES */}
           <div>
             <p className={columnTitleClass}>{t("services_column")}</p>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {serviceLinks.map((item) => (
                 <li key={item.href + item.label}>
                   {item.external ? (
@@ -160,40 +158,39 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT + newsletter */}
           <div>
             <p className={columnTitleClass}>{t("contact_column")}</p>
-            <ul className="space-y-5 text-sm text-white/70 mb-8">
-              <li className="flex gap-3">
-                <PinIcon className="w-5 h-5 shrink-0 text-white/50 mt-0.5" />
+            <ul className="space-y-3 text-sm text-white/70 mb-6">
+              <li className="flex gap-2">
+                <PinIcon className="h-4 w-4 shrink-0 text-white/70 mt-0.5" />
                 <span className="leading-relaxed">{t("address")}</span>
               </li>
-              <li className="flex gap-3">
-                <PhoneIcon className="w-5 h-5 shrink-0 text-white/50 mt-0.5" />
+              <li className="flex gap-2">
+                <PhoneIcon className="h-4 w-4 shrink-0 text-white/70 mt-0.5" />
                 <a href="tel:+212661260719" className={`${listLinkClass} inline`}>
                   +212 661 260 719
                 </a>
               </li>
-              <li className="flex gap-3">
-                <EnvelopeIcon className="w-5 h-5 shrink-0 text-white/50 mt-0.5" />
+              <li className="flex gap-2">
+                <EnvelopeIcon className="h-4 w-4 shrink-0 text-white/70 mt-0.5" />
                 <a href={`mailto:${contactEmail}`} className={`${listLinkClass} inline break-all`}>
                   {contactEmail}
                 </a>
               </li>
             </ul>
 
-            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/50 mb-3">{t("newsletter_title")}</p>
-            <div className="flex border border-white/15 rounded-sm overflow-hidden max-w-md">
+            <p className="font-heading text-[13px] text-white mt-6 mb-3">{t("newsletter_title")}</p>
+            <div className="flex border border-white/10 rounded-sm overflow-hidden max-w-md">
               <input
                 type="email"
                 name="newsletter-email"
                 autoComplete="email"
                 placeholder={t("newsletter_placeholder")}
-                className="flex-1 bg-transparent text-white placeholder:text-white/35 text-sm px-4 py-3 outline-none focus:bg-white/5 min-w-0"
+                className="flex-1 bg-transparent text-white placeholder:text-white/35 text-sm px-4 py-3 outline-none focus:bg-white/[0.03] min-w-0"
               />
               <button
                 type="button"
-                className="bg-white text-black px-5 py-3 text-xs font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors shrink-0"
+                className="bg-white text-[#080808] px-5 py-3 text-sm font-medium hover:bg-white/90 transition-colors shrink-0"
               >
                 {t("newsletter_cta")}
               </button>
@@ -201,19 +198,16 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
-          <span>
+        <div className="mt-12 border-t border-white/10 pt-8 flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+          <p className="text-sm text-white/60">
             © {new Date().getFullYear()} Homestage. {t("rights")}
-          </span>
+          </p>
           {legalItems.length > 0 ? (
-            <nav className="flex flex-wrap items-center justify-center sm:justify-end gap-x-3 gap-y-2 text-[11px] sm:text-xs">
-              {legalItems.map((item, i) => (
-                <span key={item.href} className="inline-flex items-center gap-x-3">
-                  {i > 0 ? <span className="text-white/20 select-none">·</span> : null}
-                  <a href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
-                    {item.label}
-                  </a>
-                </span>
+            <nav className="flex flex-wrap items-center gap-x-6 text-sm">
+              {legalItems.map((item) => (
+                <a key={item.href} href={item.href} className="text-white/70 hover:text-[#F8AD9C] transition-colors whitespace-nowrap">
+                  {item.label}
+                </a>
               ))}
             </nav>
           ) : null}
