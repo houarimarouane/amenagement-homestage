@@ -4,16 +4,19 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useTranslations } from "next-intl";
 
 const schema = z.object({
   name: z.string().min(2),
   phone: z.string().min(8),
-  projectType: z.enum(["airbnb", "renovation", "decoration"]),
+  address: z.string().min(5),
+  apartmentDetails: z.string().min(10),
 });
 
 type FormData = z.infer<typeof schema>;
 
 export default function HeroForm() {
+  const t = useTranslations("contact");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const {
@@ -29,7 +32,7 @@ export default function HeroForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, email: "", message: "", budget: "<50k" }),
+        body: JSON.stringify({ ...data, email: "", message: "" }),
       });
       if (res.ok) {
         setStatus("success");
@@ -45,9 +48,6 @@ export default function HeroForm() {
   const inputClass =
     "w-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 px-4 py-3 text-sm focus:outline-none focus:border-[#7A0D0A] focus:bg-white/15 transition-all backdrop-blur-sm";
 
-  const selectClass =
-    "w-full bg-white/10 border border-white/20 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#7A0D0A] focus:bg-white/15 transition-all backdrop-blur-sm appearance-none cursor-pointer";
-
   if (status === "success") {
     return (
       <div className="flex flex-col items-center justify-center gap-5 py-8 text-center">
@@ -57,14 +57,15 @@ export default function HeroForm() {
           </svg>
         </div>
         <div>
-          <p className="text-white font-medium text-lg mb-1">Demande envoyée !</p>
-          <p className="text-white/60 text-sm">Nous vous rappelons sous 24h.</p>
+          <p className="text-white font-medium text-lg mb-1">{t("hero_success_title")}</p>
+          <p className="text-white/60 text-sm">{t("hero_success_subtitle")}</p>
         </div>
         <button
+          type="button"
           onClick={() => setStatus("idle")}
           className="text-[#7A0D0A] text-xs tracking-widest uppercase hover:text-white transition-colors"
         >
-          Nouvelle demande →
+          {t("hero_new_request")}
         </button>
       </div>
     );
@@ -72,76 +73,69 @@ export default function HeroForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-      {/* Name */}
       <div>
         <input
           {...register("name")}
           className={inputClass}
-          placeholder="Votre nom"
+          placeholder={t("hero_placeholder_name")}
           autoComplete="name"
         />
         {errors.name && (
-          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">Minimum 2 caractères</p>
+          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("hero_error_name")}</p>
         )}
       </div>
 
-      {/* Phone */}
       <div>
         <input
           {...register("phone")}
           type="tel"
           className={inputClass}
-          placeholder="+212 6XX XXX XXX"
+          placeholder={t("hero_placeholder_phone")}
           autoComplete="tel"
         />
         {errors.phone && (
-          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">Numéro requis</p>
+          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("hero_error_phone")}</p>
         )}
       </div>
 
-      {/* Project type */}
-      <div className="relative">
-        <select {...register("projectType")} className={selectClass}>
-          <option value="" className="bg-foreground text-white/60">
-            Type de projet
-          </option>
-          <option value="airbnb" className="bg-foreground text-white">
-            Airbnb Clé-en-Main
-          </option>
-          <option value="renovation" className="bg-foreground text-white">
-            Rénovation Complète
-          </option>
-          <option value="decoration" className="bg-foreground text-white">
-            Aménagement & Décoration
-          </option>
-        </select>
-        <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
-          <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-        {errors.projectType && (
-          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">Sélectionnez un type</p>
+      <div>
+        <input
+          {...register("address")}
+          className={inputClass}
+          placeholder={t("hero_placeholder_address")}
+          autoComplete="street-address"
+        />
+        {errors.address && (
+          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("error_address")}</p>
         )}
       </div>
 
-      {/* CTA */}
+      <div>
+        <textarea
+          {...register("apartmentDetails")}
+          rows={3}
+          className={`${inputClass} resize-none min-h-[4.5rem]`}
+          placeholder={t("hero_placeholder_apartment")}
+        />
+        {errors.apartmentDetails && (
+          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("error_apartment_details")}</p>
+        )}
+      </div>
+
       <button
         type="submit"
         disabled={status === "loading"}
         className="w-full bg-[#7A0D0A] text-white py-4 font-medium text-sm tracking-[0.1em] uppercase hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer mt-1"
       >
-        {status === "loading" ? "Envoi en cours…" : "Obtenir mon devis gratuit"}
+        {status === "loading" ? t("hero_submit_loading") : t("hero_submit")}
       </button>
 
       {status === "error" && (
-        <p className="text-[#F8AD9C] text-xs text-center">
-          Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.
-        </p>
+        <p className="text-[#F8AD9C] text-xs text-center">{t("hero_error_generic")}</p>
       )}
 
       <p className="text-white/30 text-[10px] text-center tracking-wide pt-1">
-        Sans engagement · Réponse sous 24h
+        {t("hero_footnote")}
       </p>
     </form>
   );

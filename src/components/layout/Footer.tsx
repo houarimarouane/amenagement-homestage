@@ -101,7 +101,7 @@ export default async function Footer() {
               Contact
             </p>
             <div className="space-y-3 text-sm text-white/50 mb-6">
-              <p>📍 {t("address")}</p>
+              <p>{t("address")}</p>
               <p>
                 <a
                   href="https://wa.me/212661260719"

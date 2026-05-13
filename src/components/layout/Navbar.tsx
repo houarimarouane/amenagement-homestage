@@ -53,7 +53,7 @@ export default function Navbar({ locale }: NavbarProps) {
               width={220}
               height={88}
               priority
-              className={`max-w-[160px] sm:max-w-[200px] md:max-w-[220px] h-auto ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
+              className={`max-w-[112px] sm:max-w-[148px] md:max-w-[200px] lg:max-w-[220px] h-auto ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
             />
           </Link>
 
@@ -80,7 +80,7 @@ export default function Navbar({ locale }: NavbarProps) {
             </Link>
 
             <div
-              className={`flex items-center rounded-md border overflow-hidden text-xs font-bold tracking-widest ${
+              className={`hidden lg:flex items-center rounded-md border overflow-hidden text-xs font-bold tracking-widest ${
                 isLight
                   ? "border-foreground/20"
                   : "border-white/25"
@@ -117,9 +117,11 @@ export default function Navbar({ locale }: NavbarProps) {
             </div>
 
             <button
-              className="lg:hidden p-1"
+              type="button"
+              className="lg:hidden p-2 -mr-2 ml-auto"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
+              aria-expanded={menuOpen}
             >
               <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
               <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
@@ -140,6 +142,37 @@ export default function Navbar({ locale }: NavbarProps) {
                 {item.label}
               </Link>
             ))}
+            <div className="flex items-center gap-3 pt-2 border-t border-[#E5E0DC]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#6B6560]">
+                {t("language")}
+              </span>
+              <div className="flex items-center rounded-md border border-foreground/20 overflow-hidden text-xs font-bold tracking-widest">
+                <IntlLink
+                  href={pathname}
+                  locale="fr"
+                  onClick={() => setMenuOpen(false)}
+                  className={`px-3 py-2 transition-colors ${
+                    locale === "fr"
+                      ? "bg-[#7A0D0A] text-white"
+                      : "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
+                  }`}
+                >
+                  FR
+                </IntlLink>
+                <IntlLink
+                  href={pathname}
+                  locale="en"
+                  onClick={() => setMenuOpen(false)}
+                  className={`px-3 py-2 transition-colors border-l border-foreground/20 ${
+                    locale === "en"
+                      ? "bg-[#7A0D0A] text-white"
+                      : "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
+                  }`}
+                >
+                  EN
+                </IntlLink>
+              </div>
+            </div>
             <Link
               href={`${prefix}/#contact`}
               onClick={() => setMenuOpen(false)}

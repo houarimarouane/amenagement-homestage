@@ -57,13 +57,13 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Projet link */}
+            {/* CTA projets */}
             <Link
               href={`${prefix}/projets`}
-              className="inline-flex items-center gap-3 text-white/60 text-sm tracking-wide hover:text-white transition-colors group mb-10"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#7A0D0A] text-white px-8 py-4 text-base font-semibold tracking-wide shadow-lg shadow-black/40 ring-2 ring-white/25 hover:bg-[#5A0A07] hover:ring-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all mb-10"
             >
-              <span className="w-8 h-px bg-white/30 group-hover:bg-white transition-colors" />
-              Voir nos réalisations
+              {t("cta_projects")}
+              <span aria-hidden>→</span>
             </Link>
 
             {/* Stats inline */}
@@ -100,10 +100,12 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               {/* En-tête carte */}
               <div className="mb-6">
                 <p className="text-[10px] text-[#F8AD9C] tracking-[0.35em] uppercase mb-2">
-                  Estimation gratuite
+                  {t("form_kicker")}
                 </p>
                 <h2 className="text-white text-2xl font-heading leading-tight">
-                  Parlez-nous de<br />votre projet
+                  {t("form_title_line1")}
+                  <br />
+                  {t("form_title_line2")}
                 </h2>
                 <div className="w-10 h-0.5 bg-[#7A0D0A] mt-3" />
               </div>

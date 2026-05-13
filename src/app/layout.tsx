@@ -22,9 +22,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Homestage — Aménagement & Rénovation Airbnb Marrakech",
+  title: "Homestage — Aménagement & rénovation Airbnb à Marrakech",
   description:
-    "Homestage transforme votre bien en expérience Airbnb d'exception à Marrakech. Aménagement, rénovation complète et photos professionnelles incluses.",
+    "Homestage : aménagement, rénovation et homestaging pour Airbnb à Marrakech. Conception, travaux, mobilier, photos pro et optimisation d'annonce — accompagnement clé-en-main pour propriétaires et investisseurs.",
 };
 
 export default function RootLayout({

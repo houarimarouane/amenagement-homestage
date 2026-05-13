@@ -10,8 +10,8 @@ const schema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
   phone: z.string().min(8),
-  projectType: z.enum(["airbnb", "renovation", "decoration"]),
-  budget: z.enum(["<50k", "50-150k", "150-300k", ">300k"]),
+  address: z.string().min(5),
+  apartmentDetails: z.string().min(10),
   message: z.string().optional(),
 });
 
@@ -88,37 +88,34 @@ export default function ContactForm() {
         {errors.phone && <p className={errorClass}>Requis</p>}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label className={labelClass}>{t("project_type")}</label>
-          <select {...register("projectType")} className={inputClass}>
-            <option value="">{t("project_type_placeholder")}</option>
-            <option value="airbnb">{t("project_airbnb")}</option>
-            <option value="renovation">{t("project_renovation")}</option>
-            <option value="decoration">{t("project_decoration")}</option>
-          </select>
-          {errors.projectType && <p className={errorClass}>Requis</p>}
-        </div>
-        <div>
-          <label className={labelClass}>{t("budget")}</label>
-          <select {...register("budget")} className={inputClass}>
-            <option value="">{t("budget_placeholder")}</option>
-            <option value="<50k">{t("budget_1")}</option>
-            <option value="50-150k">{t("budget_2")}</option>
-            <option value="150-300k">{t("budget_3")}</option>
-            <option value=">300k">{t("budget_4")}</option>
-          </select>
-          {errors.budget && <p className={errorClass}>Requis</p>}
-        </div>
+      <div>
+        <label className={labelClass}>{t("address")}</label>
+        <input
+          {...register("address")}
+          className={inputClass}
+          placeholder={t("address_placeholder")}
+        />
+        {errors.address && <p className={errorClass}>{t("error_address")}</p>}
+      </div>
+
+      <div>
+        <label className={labelClass}>{t("apartment_details")}</label>
+        <textarea
+          {...register("apartmentDetails")}
+          rows={4}
+          className={inputClass}
+          placeholder={t("apartment_details_placeholder")}
+        />
+        {errors.apartmentDetails && <p className={errorClass}>{t("error_apartment_details")}</p>}
       </div>
 
       <div>
         <label className={labelClass}>{t("message")}</label>
         <textarea
           {...register("message")}
-          rows={4}
+          rows={3}
           className={inputClass}
-          placeholder="Décrivez votre bien et vos attentes..."
+          placeholder={t("message_placeholder")}
         />
       </div>
 

@@ -1,11 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 
+function isValidEmail(s: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { name, email, phone, projectType, budget, message } = body;
+  const { name, email, phone, address, apartmentDetails, message } = body;
 
-  if (!name || !email || !phone || !projectType || !budget) {
+  if (
+    !name?.trim() ||
+    !phone?.trim() ||
+    !address?.trim() ||
+    !apartmentDetails?.trim()
+  ) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+  }
+
+  const emailStr = typeof email === "string" ? email.trim() : "";
+  if (emailStr && !isValidEmail(emailStr)) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -18,14 +32,14 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: "Homestage <contact@homestage.ma>",
         to: process.env.CONTACT_EMAIL ?? "houari.marouane@gmail.com",
-        subject: `Nouvelle demande — ${name} (${projectType})`,
+        subject: `Nouvelle demande Airbnb — ${name}`,
         text: `
 Nom: ${name}
-Email: ${email}
+Email: ${emailStr || "—"}
 Téléphone: ${phone}
-Type de projet: ${projectType}
-Budget: ${budget}
-Message: ${message ?? "—"}
+Adresse du bien: ${address}
+Détails appartement: ${apartmentDetails}
+Message: ${message?.trim() ? message : "—"}
         `.trim(),
       });
     } catch (err) {
@@ -35,10 +49,10 @@ Message: ${message ?? "—"}
   } else {
     console.log("Contact form submission (no RESEND_API_KEY set):", {
       name,
-      email,
+      email: emailStr || null,
       phone,
-      projectType,
-      budget,
+      address,
+      apartmentDetails,
       message,
     });
   }
