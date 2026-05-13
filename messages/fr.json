@@ -16,8 +16,7 @@
     "cta_projects": "Voir tous nos projets",
     "cta_contact": "Demander un devis",
     "form_kicker": "Estimation gratuite",
-    "form_title_line1": "Parlons de",
-    "form_title_line2": "votre projet"
+    "form_title": "Parlons de votre projet"
   },
   "services": {
     "title": "Nos Services",

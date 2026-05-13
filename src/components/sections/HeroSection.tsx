@@ -93,8 +93,8 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* ── Colonne droite : formulaire ── */}
-          <div className="w-full">
+          {/* ── Colonne droite : formulaire (léger décalage vers la gauche sur desktop) ── */}
+          <div className="w-full lg:-translate-x-3 xl:-translate-x-5 2xl:-translate-x-6">
             {/* Card glassmorphism */}
             <div className="bg-black/50 backdrop-blur-md border border-white/15 p-8">
               {/* En-tête carte */}
@@ -102,10 +102,8 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 <p className="text-[10px] text-[#F8AD9C] tracking-[0.35em] uppercase mb-2">
                   {t("form_kicker")}
                 </p>
-                <h2 className="text-white text-2xl font-heading leading-tight">
-                  {t("form_title_line1")}
-                  <br />
-                  {t("form_title_line2")}
+                <h2 className="text-white font-heading leading-[1.15] uppercase tracking-[0.08em] text-[0.8125rem] sm:text-base md:text-lg">
+                  {t("form_title")}
                 </h2>
                 <div className="w-10 h-0.5 bg-[#7A0D0A] mt-3" />
               </div>
