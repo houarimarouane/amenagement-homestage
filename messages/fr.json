@@ -81,9 +81,16 @@
     "hero_footnote": "Sans engagement · Réponse sous 24h"
   },
   "footer": {
-    "tagline": "Aménagement, rénovation et homestaging d'appartements et maisons Airbnb à Marrakech. Nous concevons des intérieurs pensés pour la location courte durée, pilotons les travaux et le mobilier, puis livrons clé-en-main avec shooting photo et conseils pour votre annonce — pour remplir votre calendrier et valoriser votre investissement.",
+    "tagline": "Une offre pour les nouveaux propriétaires à Marrakech.\nPar l'équipe Homestage,\nexpert en services immobiliers\nau Maroc.",
     "address": "Guéliz, Rue de la Liberté, Immeuble Dani, Bureau 16, Marrakech",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "services_column": "SERVICES",
+    "svc_immobilier": "IMMOBILIER",
+    "svc_estimation": "ESTIMATION",
+    "svc_shooting": "SHOOTING PHOTO",
+    "svc_homestaging": "HOMESTAGING",
+    "svc_conciergerie": "CONCIERGERIE",
+    "svc_fetes": "FÊTES & VACANCES"
   },
   "projects_page": {
     "title": "Nos Projets",

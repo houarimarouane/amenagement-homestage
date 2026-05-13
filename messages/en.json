@@ -81,9 +81,16 @@
     "hero_footnote": "No obligation · Reply within 24h"
   },
   "footer": {
-    "tagline": "Interior design, renovation and homestaging for Airbnb apartments and homes in Marrakech. We create spaces built for short-term rental, manage construction and furnishing, then hand over turnkey — with professional photos and listing guidance — so you fill your calendar and protect your investment.",
+    "tagline": "An offer for new property owners in Marrakech.\nFrom the Homestage team,\nexperts in real estate services\nin Morocco.",
     "address": "Guéliz, Rue de la Liberté, Immeuble Dani, Bureau 16, Marrakech",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "services_column": "SERVICES",
+    "svc_immobilier": "REAL ESTATE",
+    "svc_estimation": "VALUATION",
+    "svc_shooting": "PHOTO SHOOT",
+    "svc_homestaging": "HOMESTAGING",
+    "svc_conciergerie": "CONCIERGE",
+    "svc_fetes": "EVENTS & GETAWAYS"
   },
   "projects_page": {
     "title": "Our Projects",

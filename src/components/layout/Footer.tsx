@@ -17,6 +17,15 @@ export default async function Footer() {
     { href: `${prefix}/#contact`, label: tn("contact") },
   ];
 
+  const serviceLinks = [
+    { label: t("svc_immobilier"), href: "https://www.homestage.ma", external: true },
+    { label: t("svc_estimation"), href: "https://www.homestage.ma/estimer-mon-bien", external: true },
+    { label: t("svc_shooting"), href: `${prefix}/#contact`, external: false },
+    { label: t("svc_homestaging"), href: `${prefix}/#offre`, external: false },
+    { label: t("svc_conciergerie"), href: "https://www.homestage.ma", external: true },
+    { label: t("svc_fetes"), href: "https://www.marrakechvenues.com", external: true },
+  ];
+
   return (
     <footer className="bg-[#060605] text-white border-t border-[#1C1816]">
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
@@ -29,7 +38,9 @@ export default async function Footer() {
               height={80}
               className="mb-4"
             />
-            <p className="text-white/50 text-sm leading-relaxed mb-6">{t("tagline")}</p>
+            <p className="text-white/50 text-sm leading-relaxed mb-6 whitespace-pre-line">
+              {t("tagline")}
+            </p>
             <div className="flex items-center gap-4">
               <a
                 href="https://instagram.com"
@@ -80,17 +91,28 @@ export default async function Footer() {
 
           <div>
             <p className="text-[10px] font-medium text-white/40 mb-5 uppercase tracking-[0.3em]">
-              Services
+              {t("services_column")}
             </p>
             <ul className="space-y-3 text-sm">
-              {[
-                "Aménagement & Décoration",
-                "Rénovation Complète",
-                "Airbnb Clé-en-Main",
-                "Photos Professionnelles",
-              ].map((s) => (
-                <li key={s} className="text-white/50 hover:text-[#7A0D0A] transition-colors cursor-default">
-                  {s}
+              {serviceLinks.map((item) => (
+                <li key={item.href + item.label}>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-white/50 hover:text-[#7A0D0A] transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-white/50 hover:text-[#7A0D0A] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
