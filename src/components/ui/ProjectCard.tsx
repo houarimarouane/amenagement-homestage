@@ -1,31 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/types/project";
+import { getListingMonthLabel } from "@/lib/projectListingTag";
 
 interface ProjectCardProps {
   project: Project;
   locale: string;
-  translations: {
-    type_airbnb: string;
-    type_renovation: string;
-    type_decoration: string;
-  };
 }
 
-export default function ProjectCard({ project, locale, translations }: ProjectCardProps) {
+export default function ProjectCard({ project, locale }: ProjectCardProps) {
   const href =
     locale === "fr"
       ? `/projets/${project.slug}`
       : `/en/projets/${project.slug}`;
 
   const title = locale === "fr" ? project.title : project.titleEn;
-
-  const typeLabel =
-    project.type === "airbnb"
-      ? translations.type_airbnb
-      : project.type === "renovation"
-      ? translations.type_renovation
-      : translations.type_decoration;
+  const listingTag = getListingMonthLabel(project.slug, locale);
 
   return (
     <Link href={href} className="group block overflow-hidden">
@@ -38,8 +28,8 @@ export default function ProjectCard({ project, locale, translations }: ProjectCa
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4">
-          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
-            {typeLabel}
+          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 tracking-wide">
+            {listingTag}
           </span>
         </div>
       </div>

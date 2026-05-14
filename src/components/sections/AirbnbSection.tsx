@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
@@ -49,12 +50,9 @@ const STEP_ICONS = [
   </svg>,
 ];
 
-const PHOTOS = [
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-  "https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=800&q=80",
-  "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
-  "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80",
-];
+/** Trois vues portrait + une vue paysage sous la grille « Notre approche » */
+const APPROCHE_PHOTOS = ["/approche-1.png", "/approche-2.png", "/approche-3.png"];
+const APPROCHE_PHOTO_HORIZONTAL = "/approche-4.png";
 
 export function AirbnbApproachSection() {
   const t = useTranslations("airbnb");
@@ -108,36 +106,28 @@ export function AirbnbApproachSection() {
           </div>
 
           <div className="w-full flex justify-center px-2 sm:px-4 lg:px-2 mt-4 lg:mt-0">
-            <div className="flex gap-2 sm:gap-3 w-full max-w-md xl:max-w-lg h-[22rem] sm:h-[26rem] lg:h-[30rem] xl:h-[34rem]">
-              <div className="w-1/2 min-h-0 overflow-hidden shrink-0">
-                <img
-                  src={PHOTOS[0]}
-                  alt=""
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
+            <div className="flex flex-col gap-2 sm:gap-3 w-full max-w-lg xl:max-w-xl">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 h-[22rem] sm:h-[26rem] lg:h-[30rem] xl:h-[34rem]">
+                {APPROCHE_PHOTOS.map((src) => (
+                  <div key={src} className="relative min-h-0 min-w-0 overflow-hidden">
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 30vw, (max-width: 1280px) 28vw, 320px"
+                      className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                ))}
               </div>
-              <div className="w-1/2 flex flex-col gap-2 min-h-0 min-w-0">
-                <div className="flex-1 min-h-0 overflow-hidden">
-                  <img
-                    src={PHOTOS[1]}
-                    alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="flex-1 min-h-0 overflow-hidden">
-                  <img
-                    src={PHOTOS[2]}
-                    alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="flex-1 min-h-0 overflow-hidden">
-                  <img
-                    src={PHOTOS[3]}
-                    alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+              <div className="relative w-full overflow-hidden aspect-[16/9] sm:aspect-[2/1]">
+                <Image
+                  src={APPROCHE_PHOTO_HORIZONTAL}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
+                />
               </div>
             </div>
           </div>
@@ -159,7 +149,7 @@ export function AirbnbProcessSection() {
   ];
 
   return (
-    <section id="processus" className="scroll-mt-24 py-24 px-6 bg-[#FAF8F5]">
+    <section id="processus" className="scroll-mt-24 py-24 px-6 bg-[#FBF6F1]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
@@ -241,7 +231,7 @@ export function AirbnbOfferSection() {
   const t = useTranslations("airbnb");
 
   return (
-    <section id="offre" className="scroll-mt-24 py-28 px-6 bg-[#FAF8F5]">
+    <section id="offre" className="scroll-mt-24 py-28 px-6 bg-[#FBF6F1]">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <span className="inline-flex items-center gap-3 border border-[#7A0D0A] px-5 py-2.5 text-[11px] text-[#7A0D0A] tracking-[0.3em] uppercase">

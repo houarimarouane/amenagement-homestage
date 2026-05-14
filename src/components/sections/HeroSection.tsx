@@ -1,4 +1,5 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import Link from "next/link";
 import HeroForm from "@/components/ui/HeroForm";
 
@@ -6,20 +7,24 @@ interface HeroSectionProps {
   locale: string;
 }
 
-export default function HeroSection({ locale }: HeroSectionProps) {
-  const t = useTranslations("hero");
+export default async function HeroSection({ locale }: HeroSectionProps) {
+  const t = await getTranslations("hero");
   const prefix = locale === "fr" ? "" : "/en";
 
   return (
     <section className="relative min-h-screen flex flex-col">
       {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=90')",
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/hero-interieur.png"
+          alt=""
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
       {/* Gradient : plus sombre à droite pour lire le formulaire */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/80" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />

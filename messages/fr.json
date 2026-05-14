@@ -13,7 +13,7 @@
     "title": "Aménagez votre Airbnb",
     "title_price": "À partir de 7 500 €",
     "subtitle": "Transformez votre appartement en expérience Airbnb d'exception et gagnez en visibilité",
-    "cta_projects": "Voir tous nos projets",
+    "cta_projects": "AFFICHER PLUS",
     "cta_contact": "Demander un devis",
     "form_kicker": "Estimation gratuite",
     "form_title": "Parlons de votre projet"
@@ -44,7 +44,7 @@
   "projects_preview": {
     "title": "Projets Récents",
     "subtitle": "Quelques réalisations qui parlent pour nous.",
-    "see_all": "Voir tous nos projets",
+    "see_all": "AFFICHER PLUS",
     "type_airbnb": "Airbnb",
     "type_renovation": "Rénovation",
     "type_decoration": "Décoration"

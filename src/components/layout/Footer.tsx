@@ -85,7 +85,7 @@ export default async function Footer() {
               alt="Homestage"
               width={240}
               height={60}
-              className="h-12 w-auto"
+              className="h-14 w-auto md:h-12"
             />
             <p className="text-sm text-white/65 leading-[1.65]">{t("tagline")}</p>
             <div className="flex items-center space-x-4">

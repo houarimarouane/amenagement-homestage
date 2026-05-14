@@ -12,9 +12,6 @@ interface ProjectsGridProps {
     filter_airbnb: string;
     filter_renovation: string;
     filter_decoration: string;
-    type_airbnb: string;
-    type_renovation: string;
-    type_decoration: string;
   };
 }
 
@@ -36,12 +33,6 @@ export default function ProjectsGrid({
     { key: "renovation", label: translations.filter_renovation },
     { key: "decoration", label: translations.filter_decoration },
   ];
-
-  const cardTranslations = {
-    type_airbnb: translations.type_airbnb,
-    type_renovation: translations.type_renovation,
-    type_decoration: translations.type_decoration,
-  };
 
   return (
     <>
@@ -67,7 +58,6 @@ export default function ProjectsGrid({
             key={project.slug}
             project={project}
             locale={locale}
-            translations={cardTranslations}
           />
         ))}
       </div>

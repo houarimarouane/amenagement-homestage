@@ -33,9 +33,6 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
             filter_airbnb: t("filter_airbnb"),
             filter_renovation: t("filter_renovation"),
             filter_decoration: t("filter_decoration"),
-            type_airbnb: t("filter_airbnb"),
-            type_renovation: t("filter_renovation"),
-            type_decoration: t("filter_decoration"),
           }}
         />
       </div>

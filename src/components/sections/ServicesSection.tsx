@@ -42,7 +42,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-28 px-6 bg-[#FAF8F5]">
+    <section id="services" className="py-28 px-6 bg-[#FBF6F1]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-20">
           <div>

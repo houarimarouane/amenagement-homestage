@@ -13,12 +13,6 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   const projects = getAllProjects().slice(0, 3);
   const projectsHref = locale === "fr" ? "/projets" : "/en/projets";
 
-  const translations = {
-    type_airbnb: t("type_airbnb"),
-    type_renovation: t("type_renovation"),
-    type_decoration: t("type_decoration"),
-  };
-
   return (
     <section id="portfolio" className="scroll-mt-24 py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -53,7 +47,6 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
               key={project.slug}
               project={project}
               locale={locale}
-              translations={translations}
             />
           ))}
         </div>

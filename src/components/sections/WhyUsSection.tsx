@@ -74,7 +74,7 @@ export default function WhyUsSection() {
           {metrics.map((m) => (
             <div
               key={m.label}
-              className="px-8 py-12 group hover:bg-[#FAF8F5] transition-colors duration-300"
+              className="px-8 py-12 group hover:bg-[#FBF6F1] transition-colors duration-300"
             >
               <p className="font-heading text-4xl md:text-[2.75rem] text-[#7A0D0A] mb-4 leading-none">{m.val}</p>
               <h3 className="text-foreground text-xs font-medium uppercase tracking-[0.2em] mb-3">

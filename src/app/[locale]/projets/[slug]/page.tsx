@@ -1,4 +1,5 @@
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/mdx";
+import { getListingMonthLabel } from "@/lib/projectListingTag";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -23,19 +24,13 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
   if (!project) notFound();
 
   const t = await getTranslations("project_detail");
-  const tp = await getTranslations("projects_preview");
 
   const title = locale === "fr" ? project.title : project.titleEn;
   const description = locale === "fr" ? project.description : project.descriptionEn;
   const backHref = locale === "fr" ? "/projets" : "/en/projets";
   const contactHref = locale === "fr" ? "/#contact" : "/en/#contact";
 
-  const typeLabel =
-    project.type === "airbnb"
-      ? tp("type_airbnb")
-      : project.type === "renovation"
-      ? tp("type_renovation")
-      : tp("type_decoration");
+  const listingTag = getListingMonthLabel(project.slug, locale);
 
   return (
     <div className="pt-20 pb-24 bg-white min-h-screen">
@@ -61,8 +56,8 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-8 left-0 right-0 max-w-7xl mx-auto px-6 text-white">
-          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 uppercase tracking-wide">
-            {typeLabel}
+          <span className="bg-[#7A0D0A] text-white text-xs font-medium px-3 py-1 tracking-wide">
+            {listingTag}
           </span>
           <h1 className="font-heading text-3xl md:text-5xl mt-4">{title}</h1>
           <p className="text-white/80 mt-2">
@@ -86,13 +81,7 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-[#FAF8F5] border border-[#E5E0DC] p-6 space-y-5 sticky top-28">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
-                  Type
-                </p>
-                <p className="text-foreground">{typeLabel}</p>
-              </div>
+            <div className="bg-[#FBF6F1] border border-[#E5E0DC] p-6 space-y-5 sticky top-28">
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-[#7A0D0A] mb-1">
                   Surface

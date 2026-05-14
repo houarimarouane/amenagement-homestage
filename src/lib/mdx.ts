@@ -21,7 +21,10 @@ export function getAllProjects(): Project[] {
         content,
       };
     })
-    .sort((a, b) => b.year - a.year);
+    .sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      return b.slug.localeCompare(a.slug);
+    });
 }
 
 export function getProjectBySlug(slug: string): Project | null {

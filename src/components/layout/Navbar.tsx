@@ -11,23 +11,6 @@ interface NavbarProps {
   locale: string;
 }
 
-function ContactCtaIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-    </svg>
-  );
-}
-
 function HeaderLogo({
   prefix,
   isLight,
@@ -147,7 +130,6 @@ export default function Navbar({ locale }: NavbarProps) {
               href={`${prefix}/#contact`}
               className="hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none bg-[#7A0D0A] text-white px-3 xl:px-3.5 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap"
             >
-              <ContactCtaIcon className="h-3.5 w-3.5 shrink-0 mr-1.5" />
               {t("contact")}
             </Link>
 
@@ -236,9 +218,8 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`${prefix}/#contact`}
               onClick={() => setMenuOpen(false)}
-              className="inline-flex h-9 w-full items-center justify-center gap-0 text-sm leading-none bg-[#7A0D0A] text-white px-4 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em]"
+              className="inline-flex h-9 w-full items-center justify-center text-sm leading-none bg-[#7A0D0A] text-white px-4 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em]"
             >
-              <ContactCtaIcon className="h-3.5 w-3.5 shrink-0 mr-1.5" />
               {t("contact")}
             </Link>
             <a href="https://wa.me/212661260719" className="text-xs text-[#7A0D0A] font-medium tracking-wider">

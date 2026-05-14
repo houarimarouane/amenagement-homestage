@@ -13,7 +13,7 @@
     "title": "Furnish your Airbnb",
     "title_price": "From €7,500",
     "subtitle": "Transform your property into an exceptional Airbnb experience",
-    "cta_projects": "See all our projects",
+    "cta_projects": "Show more",
     "cta_contact": "Get a quote",
     "form_kicker": "Free estimate",
     "form_title": "Let's talk about your project"
@@ -44,7 +44,7 @@
   "projects_preview": {
     "title": "Recent Projects",
     "subtitle": "A few achievements that speak for themselves.",
-    "see_all": "See all our projects",
+    "see_all": "Show more",
     "type_airbnb": "Airbnb",
     "type_renovation": "Renovation",
     "type_decoration": "Decoration"
