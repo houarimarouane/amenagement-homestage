@@ -57,13 +57,18 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* CTA projets */}
+            {/* CTA projets — lien discret + tiret (comme avant le gros bouton plein) */}
             <Link
               href={`${prefix}/projets`}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#7A0D0A] text-white px-8 py-4 text-base font-semibold tracking-wide shadow-lg shadow-black/40 ring-2 ring-white/25 hover:bg-[#5A0A07] hover:ring-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all mb-10"
+              className="inline-flex items-center gap-3 text-white/60 text-sm tracking-wide hover:text-white transition-colors group mb-10"
             >
-              {t("cta_projects")}
-              <span aria-hidden>→</span>
+              <span className="w-8 h-px shrink-0 bg-white/30 group-hover:bg-white transition-colors" />
+              <span className="inline-flex items-center gap-2">
+                {t("cta_projects")}
+                <span aria-hidden className="text-white/45 group-hover:text-white transition-colors">
+                  →
+                </span>
+              </span>
             </Link>
 
             {/* Stats inline */}

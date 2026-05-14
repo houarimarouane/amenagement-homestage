@@ -13,9 +13,6 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   const projects = getAllProjects().slice(0, 3);
   const projectsHref = locale === "fr" ? "/projets" : "/en/projets";
 
-  const seeAllButtonClass =
-    "inline-flex items-center justify-center gap-2 rounded-md bg-[#7A0D0A] text-white px-8 py-4 md:px-10 md:py-4 text-base md:text-lg font-semibold tracking-wide shadow-lg shadow-[#7A0D0A]/45 border-2 border-[#5A0A07] hover:bg-[#5A0A07] hover:shadow-xl hover:shadow-black/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A0D0A] transition-all";
-
   const translations = {
     type_airbnb: t("type_airbnb"),
     type_renovation: t("type_renovation"),
@@ -34,12 +31,19 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
               {t("title")}
             </h2>
           </div>
-          <div className="flex flex-col justify-end gap-5">
+          <div className="flex flex-col justify-end gap-4">
             <p className="text-[#6B6560] text-lg leading-relaxed">{t("subtitle")}</p>
-            <Link href={projectsHref} className={`${seeAllButtonClass} w-full sm:w-auto self-start`}>
-              {t("see_all")}
-              <span aria-hidden>→</span>
-            </Link>
+            <div>
+              <Link
+                href={projectsHref}
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground border-b border-[#7A0D0A] pb-1 hover:text-[#7A0D0A] transition-colors"
+              >
+                {t("see_all")}
+                <span className="text-[#7A0D0A]" aria-hidden>
+                  →
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -54,10 +58,12 @@ export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <Link href={projectsHref} className={seeAllButtonClass}>
+        <div className="mt-14 text-center">
+          <Link
+            href={projectsHref}
+            className="inline-block border border-foreground/30 text-foreground px-10 py-4 text-sm font-medium tracking-wide hover:bg-[#5A0A07] hover:text-white hover:border-[#7A0D0A] transition-colors"
+          >
             {t("see_all")}
-            <span aria-hidden>→</span>
           </Link>
         </div>
       </div>
