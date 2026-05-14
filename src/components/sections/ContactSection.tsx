@@ -24,7 +24,7 @@ export default function ContactSection() {
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <a
               href="#contact-form"
-              className="bg-white text-[#7A0D0A] px-8 py-4 font-medium text-sm tracking-wide hover:bg-[#FBF6F1] transition-colors text-center"
+              className="bg-white text-[#7A0D0A] px-8 py-4 font-medium text-sm tracking-wide uppercase hover:bg-[#FBF6F1] transition-colors text-center"
             >
               {tAirbnb("cta_form")}
             </a>

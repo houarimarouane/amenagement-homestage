@@ -101,7 +101,7 @@ export function AirbnbApproachSection() {
 
             <Link
               href="#contact"
-              className="inline-block bg-[#7A0D0A] text-white px-8 py-4 text-sm font-medium tracking-wide hover:bg-[#5A0A07] transition-colors"
+              className="inline-block bg-[#7A0D0A] text-white px-8 py-4 text-sm font-medium tracking-wide uppercase hover:bg-[#5A0A07] transition-colors"
             >
               {t("cta_form")}
             </Link>
