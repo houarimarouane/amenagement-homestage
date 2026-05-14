@@ -65,7 +65,7 @@ export function AirbnbApproachSection() {
         <div
           ref={approachRef}
           data-visible="false"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-start opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
         >
           <div>
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
@@ -105,27 +105,27 @@ export function AirbnbApproachSection() {
             </Link>
           </div>
 
-          <div className="w-full flex justify-center px-2 sm:px-4 lg:px-2 mt-4 lg:mt-0">
-            <div className="flex flex-col gap-2 sm:gap-3 w-full max-w-lg xl:max-w-xl">
-              <div className="grid grid-cols-3 gap-2 sm:gap-3 h-[22rem] sm:h-[26rem] lg:h-[30rem] xl:h-[34rem]">
+          <div className="w-full flex justify-center lg:justify-end mt-2 lg:mt-0">
+            <div className="flex flex-col gap-2 sm:gap-3 w-full max-w-md lg:max-w-[26rem]">
+              <div className="grid grid-cols-3 gap-2 sm:gap-2.5 h-44 sm:h-52 md:h-56 lg:h-60">
                 {APPROCHE_PHOTOS.map((src) => (
                   <div key={src} className="relative min-h-0 min-w-0 overflow-hidden">
                     <Image
                       src={src}
                       alt=""
                       fill
-                      sizes="(max-width: 640px) 30vw, (max-width: 1280px) 28vw, 320px"
+                      sizes="(max-width: 640px) 28vw, 140px"
                       className="object-cover object-center hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 ))}
               </div>
-              <div className="relative w-full overflow-hidden aspect-[16/9] sm:aspect-[2/1]">
+              <div className="relative w-full overflow-hidden aspect-[16/9]">
                 <Image
                   src={APPROCHE_PHOTO_HORIZONTAL}
                   alt=""
                   fill
-                  sizes="(max-width: 1024px) 100vw, 640px"
+                  sizes="(max-width: 1024px) 100vw, 416px"
                   className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>

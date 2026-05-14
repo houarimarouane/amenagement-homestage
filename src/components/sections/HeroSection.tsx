@@ -11,19 +11,25 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
   const t = await getTranslations("hero");
   const prefix = locale === "fr" ? "" : "/en";
 
+  const heroPanels = ["/hero-panel-1.png", "/hero-panel-2.png", "/hero-panel-3.png"];
+
   return (
     <section className="relative min-h-screen flex flex-col">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero-interieur.png"
-          alt=""
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+      {/* Background — triptyque (fichiers hero-panel-*.png dans /public) */}
+      <div className="absolute inset-0 grid grid-cols-3">
+        {heroPanels.map((src, i) => (
+          <div key={src} className="relative min-h-0 min-w-0">
+            <Image
+              src={src}
+              alt=""
+              fill
+              priority={i === 0}
+              quality={90}
+              className="object-cover object-center"
+              sizes="33vw"
+            />
+          </div>
+        ))}
       </div>
       {/* Gradient : plus sombre à droite pour lire le formulaire */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/80" />
