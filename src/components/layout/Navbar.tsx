@@ -62,7 +62,7 @@ export default function Navbar({ locale }: NavbarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm xl:text-base font-extrabold uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
+                className={`[font-family:var(--font-montserrat)] font-bold text-[13px] leading-none uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
                   isLight ? "text-foreground" : "text-white"
                 }`}
               >
@@ -137,7 +137,7 @@ export default function Navbar({ locale }: NavbarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-base uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors font-extrabold"
+                className="[font-family:var(--font-montserrat)] font-bold text-[13px] leading-snug uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors"
               >
                 {item.label}
               </Link>
