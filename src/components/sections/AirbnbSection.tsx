@@ -50,9 +50,11 @@ const STEP_ICONS = [
   </svg>,
 ];
 
-/** Trois vues portrait + une vue paysage sous la grille « Notre approche » */
-const APPROCHE_PHOTOS = ["/approche-1.png", "/approche-2.png", "/approche-3.png"];
-const APPROCHE_PHOTO_HORIZONTAL = "/approche-4.png";
+/**
+ * Grille « Notre approche » : 1 portrait pleine hauteur à gauche, 3 paysages empilés à droite (fins gouttières blanches via gap du parent).
+ */
+const APPROCHE_PORTRAIT = "/approche-1.png";
+const APPROCHE_LANDSCAPE = ["/approche-2.png", "/approche-3.png", "/approche-4.png"] as const;
 
 export function AirbnbApproachSection() {
   const t = useTranslations("airbnb");
@@ -106,29 +108,35 @@ export function AirbnbApproachSection() {
           </div>
 
           <div className="w-full flex justify-center lg:justify-end mt-2 lg:mt-0">
-            <div className="flex flex-col gap-2 sm:gap-3 w-full max-w-md lg:max-w-[26rem]">
-              <div className="grid grid-cols-3 gap-2 sm:gap-2.5 h-44 sm:h-52 md:h-56 lg:h-60">
-                {APPROCHE_PHOTOS.map((src) => (
-                  <div key={src} className="relative min-h-0 min-w-0 overflow-hidden">
-                    <Image
-                      src={src}
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 28vw, 140px"
-                      className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="relative w-full overflow-hidden aspect-[16/9]">
+            <div
+              className="grid w-full max-w-lg sm:max-w-xl lg:max-w-[min(100%,36rem)] grid-cols-2 grid-rows-3 gap-2 sm:gap-2.5
+                h-[min(72vw,22rem)] sm:h-[min(58vw,26rem)] md:h-[28rem] lg:h-[min(32vw,31rem)]"
+            >
+              <div className="relative col-start-1 row-span-3 row-start-1 min-h-0 min-w-0 overflow-hidden bg-white">
                 <Image
-                  src={APPROCHE_PHOTO_HORIZONTAL}
+                  src={APPROCHE_PORTRAIT}
                   alt=""
                   fill
-                  sizes="(max-width: 1024px) 100vw, 416px"
+                  quality={95}
+                  sizes="(max-width: 640px) 42vw, 280px"
                   className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
+              {APPROCHE_LANDSCAPE.map((src) => (
+                <div
+                  key={src}
+                  className="relative col-start-2 min-h-0 min-w-0 overflow-hidden bg-white"
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    quality={95}
+                    sizes="(max-width: 640px) 42vw, 280px"
+                    className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

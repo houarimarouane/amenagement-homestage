@@ -9,6 +9,8 @@ export interface ProjectFrontmatter {
   surface: number;
   location: string;
   year: number;
+  /** Ordre d’affichage dans les listes (plus petit = plus haut). Optionnel. */
+  sortOrder?: number;
   coverImage: string;
   images: string[];
 }

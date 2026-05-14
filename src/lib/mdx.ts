@@ -22,8 +22,11 @@ export function getAllProjects(): Project[] {
       };
     })
     .sort((a, b) => {
+      const oa = a.sortOrder ?? 100;
+      const ob = b.sortOrder ?? 100;
+      if (oa !== ob) return oa - ob;
       if (b.year !== a.year) return b.year - a.year;
-      return b.slug.localeCompare(a.slug);
+      return a.slug.localeCompare(b.slug);
     });
 }
 
