@@ -11,6 +11,50 @@ interface NavbarProps {
   locale: string;
 }
 
+function ContactCtaIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+    </svg>
+  );
+}
+
+function HeaderLogo({
+  prefix,
+  isLight,
+  className,
+}: {
+  prefix: string;
+  isLight: boolean;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={`${prefix}/`}
+      className={`flex items-center justify-center shrink-0 ${className ?? ""}`}
+    >
+      <Image
+        src={isLight ? "/logo-black.png" : "/logo-white.png"}
+        alt="Homestage"
+        width={220}
+        height={88}
+        sizes="(max-width: 767px) 168px, 200px"
+        priority
+        className={`max-w-full w-[162px] sm:w-[176px] md:w-[200px] h-auto object-contain md:object-left shrink-0 ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
+      />
+    </Link>
+  );
+}
+
 export default function Navbar({ locale }: NavbarProps) {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
@@ -36,33 +80,60 @@ export default function Navbar({ locale }: NavbarProps) {
     { href: `${prefix}/#whyus`, label: t("whyus") },
   ];
 
+  const separatorBorder = "border-[var(--color-border-separator)]";
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <header
-        className={`transition-all duration-300 ${
+        className={`transition-[background-color,box-shadow,border-color,color] duration-300 ${
           isLight
-            ? "bg-white border-b border-[#E5E0DC] shadow-sm"
-            : "bg-transparent"
+            ? `bg-white border-b ${separatorBorder} shadow-sm`
+            : "bg-transparent border-b border-transparent text-white shadow-none"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 h-20 relative flex items-center justify-between gap-4">
-          <Link href={`${prefix}/`} className="flex items-center shrink-0 z-10">
-            <Image
-              src={isLight ? "/logo-black.png" : "/logo-white.png"}
-              alt="Homestage"
-              width={220}
-              height={88}
-              priority
-              className={`max-w-[112px] sm:max-w-[148px] md:max-w-[200px] lg:max-w-[220px] h-auto ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
+        {/* Mobile : grille 3 colonnes, logo centré */}
+        <div className="lg:hidden grid grid-cols-[minmax(5.5rem,auto)_1fr_minmax(5.5rem,auto)] items-center h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 gap-3 md:gap-5">
+          <div className="flex justify-start items-center min-w-[5.5rem]">
+            <button
+              type="button"
+              className="flex h-11 w-11 items-center justify-center -ml-1"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+              aria-expanded={menuOpen}
+            >
+              <span className="flex w-[22px] flex-col gap-[5px] sm:w-5 sm:gap-1.5">
+                <span
+                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+                />
+                <span
+                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+                />
+                <span
+                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+                />
+              </span>
+            </button>
+          </div>
+          <div className="flex justify-center min-w-0">
+            <HeaderLogo
+              prefix={prefix}
+              isLight={isLight}
+              className="max-w-[min(100%,12rem)]"
             />
-          </Link>
+          </div>
+          <div className="min-w-[5.5rem]" aria-hidden />
+        </div>
 
-          <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-3 xl:gap-4 2xl:gap-5 flex-wrap max-w-[min(100%,42rem)] pointer-events-none [&_a]:pointer-events-auto">
+        {/* Desktop */}
+        <div className="hidden lg:flex items-center justify-between h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 relative gap-3 md:gap-5">
+          <HeaderLogo prefix={prefix} isLight={isLight} className="z-10 lg:justify-start" />
+
+          <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-6 xl:gap-10 flex-wrap max-w-[min(100%,42rem)] pointer-events-none [&_a]:pointer-events-auto">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`[font-family:var(--font-montserrat)] font-bold text-[13px] leading-none uppercase tracking-[0.12em] transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
+                className={`font-nav-link transition-colors hover:text-[#7A0D0A] whitespace-nowrap ${
                   isLight ? "text-foreground" : "text-white"
                 }`}
               >
@@ -74,16 +145,15 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="flex items-center gap-2 xl:gap-3 shrink-0 z-10 ml-auto">
             <Link
               href={`${prefix}/#contact`}
-              className="hidden lg:inline-flex text-sm xl:text-base bg-[#7A0D0A] text-white px-3 xl:px-5 py-2.5 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap"
+              className="hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none bg-[#7A0D0A] text-white px-3 xl:px-3.5 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap"
             >
+              <ContactCtaIcon className="h-3.5 w-3.5 shrink-0 mr-1.5" />
               {t("contact")}
             </Link>
 
             <div
               className={`hidden lg:flex items-center rounded-md border overflow-hidden text-xs font-bold tracking-widest ${
-                isLight
-                  ? "border-foreground/20"
-                  : "border-white/25"
+                isLight ? "border-foreground/20" : "border-white/25"
               }`}
             >
               <IntlLink
@@ -115,34 +185,24 @@ export default function Navbar({ locale }: NavbarProps) {
                 EN
               </IntlLink>
             </div>
-
-            <button
-              type="button"
-              className="lg:hidden p-2 -mr-2 ml-auto"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
-              aria-expanded={menuOpen}
-            >
-              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
-              <span className={`block w-5 h-px mb-1.5 transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
-              <span className={`block w-5 h-px transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`} />
-            </button>
           </div>
         </div>
 
         {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-[#E5E0DC] px-6 sm:px-8 py-6 flex flex-col gap-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div
+            className={`lg:hidden bg-white border-t ${separatorBorder} px-4 md:px-6 py-6 flex flex-col gap-5 max-h-[calc(100vh-5rem)] md:max-h-[calc(100vh-5.5rem)] overflow-y-auto max-w-7xl mx-auto w-full`}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="[font-family:var(--font-montserrat)] font-bold text-[13px] leading-snug uppercase tracking-[0.12em] text-[#6B6560] hover:text-[#7A0D0A] transition-colors"
+                className="font-nav-link text-[#6B6560] hover:text-[#7A0D0A] transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 pt-2 border-t border-[#E5E0DC]">
+            <div className={`flex items-center gap-3 pt-2 border-t ${separatorBorder}`}>
               <span className="text-xs font-bold uppercase tracking-widest text-[#6B6560]">
                 {t("language")}
               </span>
@@ -176,8 +236,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`${prefix}/#contact`}
               onClick={() => setMenuOpen(false)}
-              className="text-base bg-[#7A0D0A] text-white px-5 py-3 text-center font-extrabold uppercase tracking-[0.12em] hover:bg-[#5A0A07] transition-colors"
+              className="inline-flex h-9 w-full items-center justify-center gap-0 text-sm leading-none bg-[#7A0D0A] text-white px-4 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em]"
             >
+              <ContactCtaIcon className="h-3.5 w-3.5 shrink-0 mr-1.5" />
               {t("contact")}
             </Link>
             <a href="https://wa.me/212661260719" className="text-xs text-[#7A0D0A] font-medium tracking-wider">
