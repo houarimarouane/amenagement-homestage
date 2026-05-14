@@ -1,5 +1,5 @@
 /**
- * Libellé type « annonce » : mois + année variés mais stables par slug (même rendu à chaque build / visite).
+ * Badge « annonce » : mois seul, en majuscules, stable par slug (pas d'année).
  */
 export function getListingMonthLabel(slug: string, locale: string): string {
   const fr = [
@@ -37,10 +37,7 @@ export function getListingMonthLabel(slug: string, locale: string): string {
   }
 
   const monthIdx = h % 12;
-  const year = 2023 + ((h >>> 10) % 4);
+  const label = locale === "fr" ? fr[monthIdx] : en[monthIdx];
 
-  if (locale === "fr") {
-    return `${fr[monthIdx]} ${year}`;
-  }
-  return `${en[monthIdx]} ${year}`;
+  return label.toLocaleUpperCase(locale === "fr" ? "fr" : "en");
 }

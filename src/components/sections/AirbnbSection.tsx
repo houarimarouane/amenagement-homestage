@@ -67,7 +67,7 @@ export function AirbnbApproachSection() {
         <div
           ref={approachRef}
           data-visible="false"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-start opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 lg:items-center opacity-0 translate-y-6 transition-all duration-700 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0"
         >
           <div>
             <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
@@ -107,7 +107,7 @@ export function AirbnbApproachSection() {
             </Link>
           </div>
 
-          <div className="w-full flex justify-center lg:justify-end mt-2 lg:mt-0">
+          <div className="w-full flex justify-center lg:justify-end self-center">
             <div
               className="grid w-full max-w-lg sm:max-w-xl lg:max-w-[min(100%,36rem)] grid-cols-2 grid-rows-3 gap-2 sm:gap-2.5
                 h-[min(72vw,22rem)] sm:h-[min(58vw,26rem)] md:h-[28rem] lg:h-[min(32vw,31rem)]"

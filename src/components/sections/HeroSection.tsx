@@ -7,8 +7,13 @@ interface HeroSectionProps {
   locale: string;
 }
 
-/** Photo plein écran : même visuel que la couverture du 1er projet (Riad Garden), fichier versionné dans /public */
-const HERO_IMAGE = "/images/projets/riad-garden-np-13/01.png";
+/**
+ * Image hero plein écran.
+ * — Fichier dédié `public/hero-couverture.jpg` (object-cover = crop propre).
+ * — `unoptimized` : pas de seconde compression / pas de srcset trop petit par rapport au fichier source.
+ * — Pour un rendu net sur très grands écrans : remplacer ce fichier par la même photo en ≥ 2400 px de large (même cadrage).
+ */
+const HERO_IMAGE = "/hero-couverture.jpg";
 
 export default async function HeroSection({ locale }: HeroSectionProps) {
   const t = await getTranslations("hero");
@@ -22,7 +27,9 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
           alt=""
           fill
           priority
-          quality={95}
+          fetchPriority="high"
+          quality={100}
+          unoptimized
           className="object-cover object-center"
           sizes="100vw"
         />
