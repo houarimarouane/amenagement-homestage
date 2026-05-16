@@ -15,11 +15,16 @@ function HeaderLogo({
   prefix,
   isLight,
   className,
+  imageWidthsClassName,
 }: {
   prefix: string;
   isLight: boolean;
   className?: string;
+  /** Largeurs du logo (mobile navbar ≠ desktop) */
+  imageWidthsClassName?: string;
 }) {
+  const widthClass =
+    imageWidthsClassName ?? "w-[162px] sm:w-[176px] md:w-[200px]";
   return (
     <Link
       href={`${prefix}/`}
@@ -28,11 +33,11 @@ function HeaderLogo({
       <Image
         src={isLight ? "/logo-black.png" : "/logo-white.png"}
         alt="Homestage"
-        width={220}
-        height={88}
-        sizes="(max-width: 767px) 168px, 200px"
+        width={260}
+        height={104}
+        sizes={imageWidthsClassName ? "(max-width: 1023px) 228px, 200px" : "(max-width: 767px) 168px, 200px"}
         priority
-        className={`max-w-full w-[162px] sm:w-[176px] md:w-[200px] h-auto object-contain md:object-left shrink-0 ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
+        className={`max-w-full ${widthClass} h-auto object-contain ${imageWidthsClassName ? "object-left" : "md:object-left"} shrink-0 ${!isLight ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" : ""}`}
       />
     </Link>
   );
@@ -74,17 +79,15 @@ export default function Navbar({ locale }: NavbarProps) {
             : "bg-transparent border-b border-transparent text-white shadow-none"
         }`}
       >
-        {/* Mobile : grille 3 colonnes, logo centré, menu à droite */}
-        <div className="lg:hidden grid grid-cols-[minmax(5.5rem,auto)_1fr_minmax(5.5rem,auto)] items-center h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 gap-3 md:gap-5">
-          <div className="min-w-[5.5rem]" aria-hidden />
-          <div className="flex justify-center min-w-0">
-            <HeaderLogo
-              prefix={prefix}
-              isLight={isLight}
-              className="max-w-[min(100%,12rem)]"
-            />
-          </div>
-          <div className="flex justify-end items-center min-w-[5.5rem]">
+        {/* Mobile : logo à gauche (plus grand), menu à droite */}
+        <div className="lg:hidden flex items-center justify-between h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 gap-3 md:gap-4">
+          <HeaderLogo
+            prefix={prefix}
+            isLight={isLight}
+            className="justify-start min-w-0 flex-1"
+            imageWidthsClassName="w-[200px] sm:w-[218px] md:w-[228px]"
+          />
+          <div className="flex justify-end items-center shrink-0">
             <button
               type="button"
               className="flex h-11 w-11 items-center justify-center -mr-1"

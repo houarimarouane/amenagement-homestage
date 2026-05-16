@@ -1,19 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
 
+const slotEnum = z.enum(["morning", "afternoon", "evening"]);
+
 const schema = z.object({
   name: z.string().min(2),
   phone: z.string().min(8),
-  address: z.string().min(5),
-  apartmentDetails: z.string().min(10),
+  callbackSlots: z.array(slotEnum).min(1),
 });
 
 type FormData = z.infer<typeof schema>;
+
+const SLOT_KEYS = ["morning", "afternoon", "evening"] as const;
 
 export default function HeroForm() {
   const t = useTranslations("contact");
@@ -21,10 +24,18 @@ export default function HeroForm() {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      callbackSlots: [],
+    },
+  });
 
   const onSubmit = async (data: FormData) => {
     setStatus("loading");
@@ -32,7 +43,12 @@ export default function HeroForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, email: "", message: "" }),
+        body: JSON.stringify({
+          intent: "hero_callback",
+          name: data.name,
+          phone: data.phone,
+          callbackSlots: data.callbackSlots,
+        }),
       });
       if (res.ok) {
         setStatus("success");
@@ -72,7 +88,7 @@ export default function HeroForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
         <input
           {...register("name")}
@@ -99,26 +115,43 @@ export default function HeroForm() {
       </div>
 
       <div>
-        <input
-          {...register("address")}
-          className={inputClass}
-          placeholder={t("hero_placeholder_address")}
-          autoComplete="street-address"
+        <p className="text-white/55 text-[11px] uppercase tracking-[0.2em] mb-2.5">{t("hero_callback_label")}</p>
+        <Controller
+          name="callbackSlots"
+          control={control}
+          render={({ field }) => (
+            <div className="flex flex-col gap-2.5">
+              {SLOT_KEYS.map((key) => {
+                const checked = field.value.includes(key);
+                return (
+                  <label
+                    key={key}
+                    className={`flex items-center gap-3 cursor-pointer select-none rounded border px-3 py-2.5 text-sm transition-colors ${
+                      checked
+                        ? "border-[#7A0D0A]/80 bg-[#7A0D0A]/15 text-white"
+                        : "border-white/20 bg-white/5 text-white/85 hover:border-white/35"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      className="h-4 w-4 shrink-0 accent-[#7A0D0A]"
+                      onChange={(e) => {
+                        const next = e.target.checked
+                          ? [...new Set([...field.value, key])]
+                          : field.value.filter((v) => v !== key);
+                        field.onChange(next);
+                      }}
+                    />
+                    <span>{t(`hero_slot_${key}`)}</span>
+                  </label>
+                );
+              })}
+            </div>
+          )}
         />
-        {errors.address && (
-          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("error_address")}</p>
-        )}
-      </div>
-
-      <div>
-        <textarea
-          {...register("apartmentDetails")}
-          rows={3}
-          className={`${inputClass} resize-none min-h-[4.5rem]`}
-          placeholder={t("hero_placeholder_apartment")}
-        />
-        {errors.apartmentDetails && (
-          <p className="text-[#F8AD9C] text-xs mt-1 pl-1">{t("error_apartment_details")}</p>
+        {errors.callbackSlots && (
+          <p className="text-[#F8AD9C] text-xs mt-2 pl-1">{t("hero_error_slots")}</p>
         )}
       </div>
 
@@ -134,9 +167,7 @@ export default function HeroForm() {
         <p className="text-[#F8AD9C] text-xs text-center">{t("hero_error_generic")}</p>
       )}
 
-      <p className="text-white/30 text-[10px] text-center tracking-wide pt-1">
-        {t("hero_footnote")}
-      </p>
+      <p className="text-white/30 text-[10px] text-center tracking-wide pt-1">{t("hero_footnote")}</p>
     </form>
   );
 }

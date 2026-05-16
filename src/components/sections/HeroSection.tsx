@@ -8,10 +8,11 @@ interface HeroSectionProps {
 }
 
 /**
- * Image hero plein écran — `public/hero-couverture.png` (object-cover).
- * `unoptimized` : fichier servi tel quel. Pour plus de netteté sur grands écrans : source ≥ 2400 px de large.
+ * Hero plein écran — intérieur méditerranéen (arches, lumineux).
+ * Source : Unsplash — Planet Volumes · unsplash.com/photos/z1n2ucXrEbc (Licence Unsplash).
+ * `unoptimized` + JPG ~2400px : rendu net sans double compression Next.
  */
-const HERO_IMAGE = "/hero-couverture.png";
+const HERO_IMAGE = "/hero-couverture.jpg";
 
 export default async function HeroSection({ locale }: HeroSectionProps) {
   const t = await getTranslations("hero");
@@ -22,13 +23,13 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE}
-          alt=""
+          alt="Intérieur lumineux avec arches, inspiration méditerranéenne"
           fill
           priority
           fetchPriority="high"
           quality={100}
           unoptimized
-          className="object-cover object-center"
+          className="object-cover object-[center_42%] max-lg:object-center"
           sizes="100vw"
         />
       </div>
