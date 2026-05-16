@@ -120,13 +120,13 @@ export default function HeroForm() {
           name="callbackSlots"
           control={control}
           render={({ field }) => (
-            <div className="flex flex-col gap-2.5">
+            <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
               {SLOT_KEYS.map((key) => {
                 const checked = field.value.includes(key);
                 return (
                   <label
                     key={key}
-                    className={`flex items-center gap-3 cursor-pointer select-none rounded border px-3 py-2.5 text-sm transition-colors ${
+                    className={`flex cursor-pointer select-none flex-col items-center gap-2 rounded border px-1.5 py-2.5 text-center transition-colors sm:px-2 sm:py-3 ${
                       checked
                         ? "border-[#7A0D0A]/80 bg-[#7A0D0A]/15 text-white"
                         : "border-white/20 bg-white/5 text-white/85 hover:border-white/35"
@@ -135,7 +135,7 @@ export default function HeroForm() {
                     <input
                       type="checkbox"
                       checked={checked}
-                      className="h-4 w-4 shrink-0 accent-[#7A0D0A]"
+                      className="h-3.5 w-3.5 shrink-0 accent-[#7A0D0A] sm:h-4 sm:w-4"
                       onChange={(e) => {
                         const next = e.target.checked
                           ? [...new Set([...field.value, key])]
@@ -143,7 +143,7 @@ export default function HeroForm() {
                         field.onChange(next);
                       }}
                     />
-                    <span>{t(`hero_slot_${key}`)}</span>
+                    <span className="text-[10px] leading-snug sm:text-[11px]">{t(`hero_slot_${key}`)}</span>
                   </label>
                 );
               })}
@@ -158,7 +158,7 @@ export default function HeroForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full bg-[#7A0D0A] text-white py-4 font-medium text-sm tracking-[0.1em] uppercase hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer mt-1"
+        className="w-full bg-[#7A0D0A] text-white py-4 font-medium text-sm tracking-wide hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer mt-1"
       >
         {status === "loading" ? t("hero_submit_loading") : t("hero_submit")}
       </button>

@@ -75,7 +75,7 @@
     "hero_error_name": "Minimum 2 caractères",
     "hero_error_phone": "Numéro requis",
     "hero_error_slots": "Cochez au moins un créneau",
-    "hero_submit": "Me faire rappeler",
+    "hero_submit": "Contactez-moi",
     "hero_submit_loading": "Envoi en cours…",
     "hero_success_title": "Demande envoyée !",
     "hero_success_subtitle": "Nous vous rappelons vite à ces horaires.",
@@ -119,7 +119,7 @@
   "airbnb": {
     "badge": "Profitez de l'offre Homestage",
     "label": "Pour les 10 premiers propriétaires",
-    "title": "À partir de 7 500 €, votre appartement est prêt.",
+    "title": "Aménagez votre Airbnb à partir de 7 500 €",
     "subtitle": "Notre offre clé en main a été pensée pour les propriétaires qui souhaitent lancer rapidement un appartement performant sur Airbnb, sans perdre des mois entre travaux, achats et coordination.",
     "stat1_value": "+30",
     "stat1_label": "Réalisations à Marrakech",
@@ -139,7 +139,7 @@
       "Créer une expérience mémorable"
     ],
     "process_label": "Comment ça marche ?",
-    "process_title": "Du chantier à la première réservation",
+    "process_title": "Du chantier à la réservation",
     "s1_title": "Visite & Positionnement",
     "s1_desc": "Analyse du potentiel locatif et positionnement idéal sur Airbnb. Visite possible de nos chantiers en cours à Marrakech.",
     "s2_title": "Concept Créatif",

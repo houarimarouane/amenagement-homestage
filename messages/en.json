@@ -75,7 +75,7 @@
     "hero_error_name": "At least 2 characters",
     "hero_error_phone": "Phone required",
     "hero_error_slots": "Pick at least one time slot",
-    "hero_submit": "Request a callback",
+    "hero_submit": "Contact me",
     "hero_submit_loading": "Sending…",
     "hero_success_title": "Request sent!",
     "hero_success_subtitle": "We'll call you back during one of these windows.",
@@ -119,7 +119,7 @@
   "airbnb": {
     "badge": "Take advantage of the Homestage offer",
     "label": "For the first 10 property owners",
-    "title": "From €7,500, your apartment is ready.",
+    "title": "Furnish your Airbnb from €7,500",
     "subtitle": "Our turnkey offer is built for owners who want to launch a high-performing Airbnb apartment fast — without losing months to renovations, sourcing, and coordination.",
     "stat1_value": "30+",
     "stat1_label": "Completed projects in Marrakech",
@@ -139,7 +139,7 @@
       "and create a memorable experience for guests."
     ],
     "process_label": "How it works",
-    "process_title": "From bare apartment to your first Airbnb booking",
+    "process_title": "From site work to your booking",
     "s1_title": "Visit & Positioning",
     "s1_desc": "Rental potential review and the right Airbnb positioning. Optional visits to our live projects in Marrakech.",
     "s2_title": "Creative Concept",
