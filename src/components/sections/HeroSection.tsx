@@ -33,9 +33,9 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
           sizes="100vw"
         />
       </div>
-      {/* Gradient : plus sombre à droite pour lire le formulaire */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+      {/* Dégradés éclaircis — lisibilité du texte / formulaire tout en laissant passer la photo */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/42 to-black/58" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/52" />
 
       {/* Main content — deux colonnes */}
       <div className="relative z-10 flex-1 flex items-center px-6 pt-32 pb-16">
@@ -47,10 +47,10 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
             <div className="mb-10 max-w-2xl">
               {/* Grand titre — service */}
               <h1 className="mb-3 text-balance">
-                <span className="block font-heading text-lg font-medium uppercase leading-snug tracking-[0.065em] text-white sm:text-xl md:text-2xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
+                <span className="block font-heading text-xl font-medium uppercase leading-[1.12] tracking-[0.05em] text-white sm:text-2xl md:text-3xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
                   {t("title")}
                 </span>
-                <span className="mt-2 block font-heading text-xl font-bold uppercase leading-[1.08] tracking-[0.045em] text-[var(--color-accent-light)] sm:text-2xl md:text-3xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
+                <span className="mt-2.5 block font-heading text-2xl font-bold uppercase leading-[1.06] tracking-[0.04em] text-[#7A0D0A] sm:text-3xl md:text-4xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
                   {t("title_price")}
                 </span>
               </h1>

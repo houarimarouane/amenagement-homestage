@@ -244,17 +244,14 @@ function AirbnbOfferActions({ prefix, className }: { prefix: string; className?:
   const t = useTranslations("airbnb");
   return (
     <div className={`flex flex-col gap-3 ${className ?? ""}`}>
-      <Link href={`${prefix}/#contact`} className={offerBtnPrimary}>
-        {t("offer_btn_primary")}
-      </Link>
-      <Link href={`${prefix}/projets`} className={offerBtnOutline}>
+      <Link href={`${prefix}/projets`} className={offerBtnPrimary}>
         {t("offer_btn_projects")}
       </Link>
       <a
         href="https://wa.me/212661260719"
         target="_blank"
         rel="noopener noreferrer"
-        className={`${offerBtnOutline} border-[#6B6560]/40 text-[#6B6560] hover:border-[#7A0D0A] hover:text-[#7A0D0A]`}
+        className={offerBtnOutline}
       >
         {t("cta_whatsapp")}
       </a>
@@ -269,7 +266,7 @@ export function AirbnbOfferSection() {
 
   return (
     <section id="offre" className="scroll-mt-24 py-28 px-6 bg-[#FBF6F1]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(240px,300px)] lg:gap-16 xl:gap-24 lg:items-start">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-12 xl:gap-16 lg:items-start">
         <div>
           <div className="mb-8">
             <span className="inline-flex items-center gap-3 border border-[#7A0D0A] px-5 py-2.5 text-[11px] text-[#7A0D0A] tracking-[0.3em] uppercase">
@@ -293,7 +290,10 @@ export function AirbnbOfferSection() {
           <AirbnbOfferActions prefix={prefix} className="mt-10 lg:hidden" />
         </div>
 
-        <aside className="hidden lg:block lg:pt-[5.25rem] xl:pt-[5.5rem]" aria-label="Actions">
+        <aside
+          className="hidden lg:flex lg:flex-col lg:justify-self-start lg:w-[min(100%,260px)] lg:max-w-[260px] lg:shrink-0 lg:pt-[8.5rem] xl:pt-[9.25rem] lg:-translate-x-7 xl:-translate-x-10"
+          aria-label="Actions"
+        >
           <AirbnbOfferActions prefix={prefix} />
         </aside>
       </div>
