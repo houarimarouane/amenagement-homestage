@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -235,30 +235,67 @@ export function AirbnbProcessSection() {
   );
 }
 
+const offerBtnPrimary =
+  "inline-flex w-full items-center justify-center bg-[#7A0D0A] px-5 py-3.5 text-center text-xs font-bold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#5A0A07] sm:text-sm";
+const offerBtnOutline =
+  "inline-flex w-full items-center justify-center border-2 border-[#7A0D0A] bg-transparent px-5 py-3.5 text-center text-xs font-bold uppercase tracking-[0.14em] text-[#7A0D0A] transition-colors hover:bg-[#7A0D0A]/[0.06] sm:text-sm";
+
+function AirbnbOfferActions({ prefix, className }: { prefix: string; className?: string }) {
+  const t = useTranslations("airbnb");
+  return (
+    <div className={`flex flex-col gap-3 ${className ?? ""}`}>
+      <Link href={`${prefix}/#contact`} className={offerBtnPrimary}>
+        {t("offer_btn_primary")}
+      </Link>
+      <Link href={`${prefix}/projets`} className={offerBtnOutline}>
+        {t("offer_btn_projects")}
+      </Link>
+      <a
+        href="https://wa.me/212661260719"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${offerBtnOutline} border-[#6B6560]/40 text-[#6B6560] hover:border-[#7A0D0A] hover:text-[#7A0D0A]`}
+      >
+        {t("cta_whatsapp")}
+      </a>
+    </div>
+  );
+}
+
 export function AirbnbOfferSection() {
   const t = useTranslations("airbnb");
+  const locale = useLocale();
+  const prefix = locale === "fr" ? "" : "/en";
 
   return (
     <section id="offre" className="scroll-mt-24 py-28 px-6 bg-[#FBF6F1]">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <span className="inline-flex items-center gap-3 border border-[#7A0D0A] px-5 py-2.5 text-[11px] text-[#7A0D0A] tracking-[0.3em] uppercase">
-            <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            {t("badge")}
-          </span>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(240px,300px)] lg:gap-16 xl:gap-24 lg:items-start">
+        <div>
+          <div className="mb-8">
+            <span className="inline-flex items-center gap-3 border border-[#7A0D0A] px-5 py-2.5 text-[11px] text-[#7A0D0A] tracking-[0.3em] uppercase">
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              {t("badge")}
+            </span>
+          </div>
+
+          <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
+            {t("label")}
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-foreground leading-tight mb-6 max-w-4xl">
+            {t("title")}
+          </h2>
+          <p className="text-[#6B6560] text-lg leading-relaxed max-w-2xl">
+            {t("subtitle")}
+          </p>
+
+          <AirbnbOfferActions prefix={prefix} className="mt-10 lg:hidden" />
         </div>
 
-        <p className="text-[#7A0D0A] text-[11px] font-medium tracking-[0.4em] uppercase mb-5">
-          {t("label")}
-        </p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-foreground leading-tight mb-6 max-w-4xl">
-          {t("title")}
-        </h2>
-        <p className="text-[#6B6560] text-lg leading-relaxed max-w-2xl">
-          {t("subtitle")}
-        </p>
+        <aside className="hidden lg:block lg:pt-[5.25rem] xl:pt-[5.5rem]" aria-label="Actions">
+          <AirbnbOfferActions prefix={prefix} />
+        </aside>
       </div>
     </section>
   );

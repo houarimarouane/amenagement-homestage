@@ -8,9 +8,9 @@ interface HeroSectionProps {
 }
 
 /**
- * Hero plein écran — intérieur méditerranéen (arches, lumineux).
- * Source : Unsplash — Planet Volumes · unsplash.com/photos/z1n2ucXrEbc (Licence Unsplash).
- * `unoptimized` + JPG ~2400px : rendu net sans double compression Next.
+ * Hero plein écran — salon lumineux (photo Pexels).
+ * Photo : Dada Design · pexels.com/photo/12281847/ (Licence Pexels · usage gratuit).
+ * `unoptimized` : fichier servi tel quel. Pour plus de netteté sur grands écrans : idéal ≥ 1920 px de large en paysage.
  */
 const HERO_IMAGE = "/hero-couverture.jpg";
 
@@ -23,13 +23,13 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE}
-          alt="Intérieur lumineux avec arches, inspiration méditerranéenne"
+          alt="Salon moderne lumineux avec canapé et grandes fenêtres"
           fill
           priority
           fetchPriority="high"
           quality={100}
           unoptimized
-          className="object-cover object-[center_42%] max-lg:object-center"
+          className="object-cover object-[28%_center] max-lg:object-center"
           sizes="100vw"
         />
       </div>
@@ -50,7 +50,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 <span className="block font-heading text-lg font-medium uppercase leading-snug tracking-[0.065em] text-white sm:text-xl md:text-2xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
                   {t("title")}
                 </span>
-                <span className="mt-2 block font-heading text-xl font-bold uppercase leading-[1.08] tracking-[0.045em] text-[#F97316] sm:text-2xl md:text-3xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
+                <span className="mt-2 block font-heading text-xl font-bold uppercase leading-[1.08] tracking-[0.045em] text-[var(--color-accent-light)] sm:text-2xl md:text-3xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
                   {t("title_price")}
                 </span>
               </h1>

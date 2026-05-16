@@ -1,22 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
 
-const slotEnum = z.enum(["morning", "afternoon", "evening"]);
-
 const schema = z.object({
   name: z.string().min(2),
   phone: z.string().min(8),
-  callbackSlots: z.array(slotEnum).min(1),
 });
 
 type FormData = z.infer<typeof schema>;
-
-const SLOT_KEYS = ["morning", "afternoon", "evening"] as const;
 
 export default function HeroForm() {
   const t = useTranslations("contact");
@@ -24,7 +19,6 @@ export default function HeroForm() {
 
   const {
     register,
-    control,
     handleSubmit,
     reset,
     formState: { errors },
@@ -33,7 +27,6 @@ export default function HeroForm() {
     defaultValues: {
       name: "",
       phone: "",
-      callbackSlots: [],
     },
   });
 
@@ -47,7 +40,6 @@ export default function HeroForm() {
           intent: "hero_callback",
           name: data.name,
           phone: data.phone,
-          callbackSlots: data.callbackSlots,
         }),
       });
       if (res.ok) {
@@ -88,7 +80,7 @@ export default function HeroForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <div>
         <input
           {...register("name")}
@@ -114,51 +106,10 @@ export default function HeroForm() {
         )}
       </div>
 
-      <div>
-        <p className="text-white/55 text-[11px] uppercase tracking-[0.2em] mb-2.5">{t("hero_callback_label")}</p>
-        <Controller
-          name="callbackSlots"
-          control={control}
-          render={({ field }) => (
-            <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
-              {SLOT_KEYS.map((key) => {
-                const checked = field.value.includes(key);
-                return (
-                  <label
-                    key={key}
-                    className={`flex cursor-pointer select-none flex-col items-center gap-2 rounded border px-1.5 py-2.5 text-center transition-colors sm:px-2 sm:py-3 ${
-                      checked
-                        ? "border-[#7A0D0A]/80 bg-[#7A0D0A]/15 text-white"
-                        : "border-white/20 bg-white/5 text-white/85 hover:border-white/35"
-                    }`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={checked}
-                      className="h-3.5 w-3.5 shrink-0 accent-[#7A0D0A] sm:h-4 sm:w-4"
-                      onChange={(e) => {
-                        const next = e.target.checked
-                          ? [...new Set([...field.value, key])]
-                          : field.value.filter((v) => v !== key);
-                        field.onChange(next);
-                      }}
-                    />
-                    <span className="text-[10px] leading-snug sm:text-[11px]">{t(`hero_slot_${key}`)}</span>
-                  </label>
-                );
-              })}
-            </div>
-          )}
-        />
-        {errors.callbackSlots && (
-          <p className="text-[#F8AD9C] text-xs mt-2 pl-1">{t("hero_error_slots")}</p>
-        )}
-      </div>
-
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full bg-[#7A0D0A] text-white py-4 font-medium text-sm tracking-wide hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer mt-1"
+        className="w-full bg-[#7A0D0A] text-white py-4 font-medium text-sm uppercase tracking-[0.12em] hover:bg-[#5A0A07] transition-colors disabled:opacity-60 cursor-pointer mt-1"
       >
         {status === "loading" ? t("hero_submit_loading") : t("hero_submit")}
       </button>

@@ -4,17 +4,6 @@ function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
-const CALLBACK_SLOT_LABELS: Record<string, string> = {
-  morning: "Matin (9h–12h)",
-  afternoon: "Après-midi (14h–18h)",
-  evening: "Soir (17h–20h)",
-};
-
-function formatCallbackSlots(slots: string[]) {
-  const uniq = [...new Set(slots)];
-  return uniq.map((s) => CALLBACK_SLOT_LABELS[s] ?? s).join(", ");
-}
-
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const {
@@ -25,7 +14,6 @@ export async function POST(req: NextRequest) {
     address,
     apartmentDetails,
     message,
-    callbackSlots,
   } = body;
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -35,15 +23,6 @@ export async function POST(req: NextRequest) {
     if (!name?.trim() || !phone?.trim()) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
-    if (!Array.isArray(callbackSlots) || callbackSlots.length === 0) {
-      return NextResponse.json({ error: "Missing callback slots" }, { status: 400 });
-    }
-    const allowed = new Set(["morning", "afternoon", "evening"]);
-    if (!callbackSlots.every((s: unknown) => typeof s === "string" && allowed.has(s))) {
-      return NextResponse.json({ error: "Invalid callback slots" }, { status: 400 });
-    }
-
-    const slotsLine = formatCallbackSlots(callbackSlots as string[]);
 
     if (apiKey) {
       try {
@@ -58,7 +37,6 @@ export async function POST(req: NextRequest) {
 Formulaire hero (rappel téléphonique)
 Nom: ${name}
 Téléphone: ${phone}
-Créneaux souhaités: ${slotsLine}
           `.trim(),
         });
       } catch (err) {
@@ -69,7 +47,6 @@ Créneaux souhaités: ${slotsLine}
       console.log("Hero callback (no RESEND_API_KEY set):", {
         name,
         phone,
-        callbackSlots,
       });
     }
 

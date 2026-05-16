@@ -68,17 +68,12 @@
     "error": "An error occurred. Please try again.",
     "hero_placeholder_name": "Your name",
     "hero_placeholder_phone": "+212 6XX XXX XXX",
-    "hero_callback_label": "Good times to call you back",
-    "hero_slot_morning": "Morning · 9am–12pm",
-    "hero_slot_afternoon": "Afternoon · 2pm–6pm",
-    "hero_slot_evening": "Evening · 5pm–8pm",
     "hero_error_name": "At least 2 characters",
     "hero_error_phone": "Phone required",
-    "hero_error_slots": "Pick at least one time slot",
     "hero_submit": "Contact me",
     "hero_submit_loading": "Sending…",
     "hero_success_title": "Request sent!",
-    "hero_success_subtitle": "We'll call you back during one of these windows.",
+    "hero_success_subtitle": "We'll call you back within 24 hours.",
     "hero_new_request": "New request →",
     "hero_error_generic": "Something went wrong. Try again or reach us on WhatsApp.",
     "hero_footnote": "No obligation · Free callback within 24h"
@@ -158,7 +153,9 @@
     "testimonial_author": "Sarah D. — MRE Investor, Paris",
     "cta_sub": "Free first consultation · No commitment · Live worksites available to visit",
     "cta_form": "My quote",
-    "cta_whatsapp": "Message on WhatsApp"
+    "cta_whatsapp": "Message on WhatsApp",
+    "offer_btn_primary": "Request a quote",
+    "offer_btn_projects": "See our projects"
   },
   "project_detail": {
     "back": "Back to projects",

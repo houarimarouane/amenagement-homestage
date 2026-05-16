@@ -68,17 +68,12 @@
     "error": "Une erreur est survenue. Veuillez réessayer.",
     "hero_placeholder_name": "Votre nom",
     "hero_placeholder_phone": "+212 6XX XXX XXX",
-    "hero_callback_label": "Créneaux pour être rappelé(e)",
-    "hero_slot_morning": "Matin · 9h–12h",
-    "hero_slot_afternoon": "Après-midi · 14h–18h",
-    "hero_slot_evening": "Soir · 17h–20h",
     "hero_error_name": "Minimum 2 caractères",
     "hero_error_phone": "Numéro requis",
-    "hero_error_slots": "Cochez au moins un créneau",
     "hero_submit": "Contactez-moi",
     "hero_submit_loading": "Envoi en cours…",
     "hero_success_title": "Demande envoyée !",
-    "hero_success_subtitle": "Nous vous rappelons vite à ces horaires.",
+    "hero_success_subtitle": "Nous vous rappelons sous 24h.",
     "hero_new_request": "Nouvelle demande →",
     "hero_error_generic": "Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.",
     "hero_footnote": "Sans engagement · Rappel gratuit sous 24h"
@@ -158,7 +153,9 @@
     "testimonial_author": "Sarah D. — Investisseur MRE, Paris",
     "cta_sub": "Premier échange gratuit · Sans engagement · Chantiers disponibles à la visite",
     "cta_form": "Par mon devis",
-    "cta_whatsapp": "Écrire sur WhatsApp"
+    "cta_whatsapp": "Écrire sur WhatsApp",
+    "offer_btn_primary": "Demander un devis",
+    "offer_btn_projects": "Voir nos réalisations"
   },
   "project_detail": {
     "back": "Retour aux projets",
