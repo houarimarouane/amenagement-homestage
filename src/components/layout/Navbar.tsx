@@ -74,12 +74,20 @@ export default function Navbar({ locale }: NavbarProps) {
             : "bg-transparent border-b border-transparent text-white shadow-none"
         }`}
       >
-        {/* Mobile : grille 3 colonnes, logo centré */}
+        {/* Mobile : grille 3 colonnes, logo centré, menu à droite */}
         <div className="lg:hidden grid grid-cols-[minmax(5.5rem,auto)_1fr_minmax(5.5rem,auto)] items-center h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 gap-3 md:gap-5">
-          <div className="flex justify-start items-center min-w-[5.5rem]">
+          <div className="min-w-[5.5rem]" aria-hidden />
+          <div className="flex justify-center min-w-0">
+            <HeaderLogo
+              prefix={prefix}
+              isLight={isLight}
+              className="max-w-[min(100%,12rem)]"
+            />
+          </div>
+          <div className="flex justify-end items-center min-w-[5.5rem]">
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center -ml-1"
+              className="flex h-11 w-11 items-center justify-center -mr-1"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
               aria-expanded={menuOpen}
@@ -97,14 +105,6 @@ export default function Navbar({ locale }: NavbarProps) {
               </span>
             </button>
           </div>
-          <div className="flex justify-center min-w-0">
-            <HeaderLogo
-              prefix={prefix}
-              isLight={isLight}
-              className="max-w-[min(100%,12rem)]"
-            />
-          </div>
-          <div className="min-w-[5.5rem]" aria-hidden />
         </div>
 
         {/* Desktop */}

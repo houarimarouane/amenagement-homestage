@@ -7,8 +7,14 @@ export default function ContactSection() {
 
   return (
     <div id="contact" className="scroll-mt-24">
-      {/* CTA band — rouge foncé */}
-      <section className="relative py-20 px-6 bg-[#7A0D0A] overflow-hidden">
+      {/* CTA band — fond type spotlight bordeaux (réf. design) */}
+      <section
+        className="relative py-20 px-6 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 100% at 20% 50%, #3d0a0a 0%, #2a0808 38%, #1a0505 68%, #0f0303 100%)",
+        }}
+      >
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5 pointer-events-none select-none hidden lg:flex items-center justify-end pr-12">
           <span className="font-serif text-[16rem] leading-none text-white">&ldquo;</span>
         </div>

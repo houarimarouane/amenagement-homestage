@@ -8,12 +8,10 @@ interface HeroSectionProps {
 }
 
 /**
- * Image hero plein écran.
- * — Fichier dédié `public/hero-couverture.jpg` (object-cover = crop propre).
- * — `unoptimized` : pas de seconde compression / pas de srcset trop petit par rapport au fichier source.
- * — Pour un rendu net sur très grands écrans : remplacer ce fichier par la même photo en ≥ 2400 px de large (même cadrage).
+ * Image hero plein écran — `public/hero-couverture.png` (object-cover).
+ * `unoptimized` : fichier servi tel quel. Pour plus de netteté sur grands écrans : source ≥ 2400 px de large.
  */
-const HERO_IMAGE = "/hero-couverture.jpg";
+const HERO_IMAGE = "/hero-couverture.png";
 
 export default async function HeroSection({ locale }: HeroSectionProps) {
   const t = await getTranslations("hero");
