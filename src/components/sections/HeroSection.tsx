@@ -8,9 +8,9 @@ interface HeroSectionProps {
 }
 
 /**
- * Hero plein écran — salon lumineux (photo Pexels).
- * Photo : Dada Design · pexels.com/photo/12281847/ (Licence Pexels · usage gratuit).
- * `unoptimized` : fichier servi tel quel. Pour plus de netteté sur grands écrans : idéal ≥ 1920 px de large en paysage.
+ * Hero plein écran — salon moderne (photo Pexels).
+ * Photo : The Ghazi · pexels.com/photo/32177976/ (Licence Pexels · usage gratuit).
+ * `unoptimized` : fichier servi tel quel. Idéal ≥ 1920 px de large en paysage pour les grands écrans.
  */
 const HERO_IMAGE = "/hero-couverture.jpg";
 
@@ -23,13 +23,13 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE}
-          alt="Salon moderne lumineux avec canapé et grandes fenêtres"
+          alt="Salon contemporain avec canapé, tableau végétal et décoration naturelle"
           fill
           priority
           fetchPriority="high"
           quality={100}
           unoptimized
-          className="object-cover object-[28%_center] max-lg:object-center"
+          className="object-cover object-[26%_52%] max-lg:object-[center_48%]"
           sizes="100vw"
         />
       </div>
