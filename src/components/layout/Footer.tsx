@@ -57,7 +57,7 @@ export default async function Footer() {
   const serviceLinks = [
     { label: t("svc_immobilier"), href: "https://www.homestage.ma", external: true },
     { label: t("svc_estimation"), href: "https://www.homestage.ma/estimer-mon-bien", external: true },
-    { label: t("svc_shooting"), href: `${prefix}/#contact`, external: false },
+    { label: t("svc_shooting"), href: "https://shooting.homestage.ma", external: true },
     { label: t("svc_homestaging"), href: `${prefix}/#offre`, external: false },
     { label: t("svc_conciergerie"), href: "https://www.homestage.ma", external: true },
     { label: t("svc_fetes"), href: "https://www.marrakechvenues.com", external: true },

@@ -131,11 +131,7 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="flex items-center gap-2 xl:gap-3 shrink-0 z-10 ml-auto">
             <Link
               href={`${prefix}/#contact`}
-              className={`hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none px-3 xl:px-3.5 transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap ${
-                isLight
-                  ? "bg-[#7A0D0A] text-white hover:bg-[#5A0A07]"
-                  : "bg-white text-[#7A0D0A] hover:bg-white/90"
-              }`}
+              className="hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none px-3 xl:px-3.5 transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap bg-[#7A0D0A] text-white hover:bg-[#5A0A07]"
             >
               {t("contact")}
             </Link>

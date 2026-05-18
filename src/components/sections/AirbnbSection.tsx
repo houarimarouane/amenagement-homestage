@@ -51,7 +51,7 @@ const STEP_ICONS = [
 ];
 
 /**
- * Grille « Notre approche » : 1 portrait pleine hauteur à gauche, 3 paysages empilés à droite (fins gouttières blanches via gap du parent).
+ * Grille « Notre approche » : 1 portrait (debout) pleine hauteur à gauche, 3 paysages empilés à droite.
  */
 const APPROCHE_PORTRAIT = "/approche-1.png";
 const APPROCHE_LANDSCAPE = ["/approche-2.png", "/approche-3.png", "/approche-4.png"] as const;
@@ -118,7 +118,7 @@ export function AirbnbApproachSection() {
                   alt=""
                   fill
                   quality={95}
-                  sizes="(max-width: 640px) 42vw, 280px"
+                  sizes="(max-width: 1024px) 45vw, (max-width: 1280px) 320px, 360px"
                   className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
@@ -132,7 +132,7 @@ export function AirbnbApproachSection() {
                     alt=""
                     fill
                     quality={95}
-                    sizes="(max-width: 640px) 42vw, 280px"
+                    sizes="(max-width: 1024px) 45vw, (max-width: 1280px) 320px, 360px"
                     className="object-cover object-center hover:scale-[1.02] transition-transform duration-700"
                   />
                 </div>
