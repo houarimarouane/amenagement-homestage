@@ -103,10 +103,6 @@
   "projects_page": {
     "title": "Our Projects",
     "subtitle": "Explore our work in Marrakech.",
-    "filter_all": "All",
-    "filter_airbnb": "Airbnb",
-    "filter_renovation": "Renovation",
-    "filter_decoration": "Decoration",
     "surface": "Area",
     "location": "Location",
     "year": "Year"

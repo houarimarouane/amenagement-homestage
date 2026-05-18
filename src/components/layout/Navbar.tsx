@@ -131,7 +131,11 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="flex items-center gap-2 xl:gap-3 shrink-0 z-10 ml-auto">
             <Link
               href={`${prefix}/#contact`}
-              className="hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none bg-[#7A0D0A] text-white px-3 xl:px-3.5 hover:bg-[#5A0A07] transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap"
+              className={`hidden lg:inline-flex h-9 items-center justify-center text-sm leading-none px-3 xl:px-3.5 transition-colors font-extrabold uppercase tracking-[0.12em] whitespace-nowrap ${
+                isLight
+                  ? "bg-[#7A0D0A] text-white hover:bg-[#5A0A07]"
+                  : "bg-white text-[#7A0D0A] hover:bg-white/90"
+              }`}
             >
               {t("contact")}
             </Link>
@@ -146,7 +150,9 @@ export default function Navbar({ locale }: NavbarProps) {
                 locale="fr"
                 className={`px-2.5 py-1.5 transition-colors ${
                   locale === "fr"
-                    ? "bg-[#7A0D0A] text-white"
+                    ? isLight
+                      ? "bg-[#7A0D0A] text-white"
+                      : "bg-white text-[#7A0D0A]"
                     : isLight
                       ? "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
                       : "text-white/65 hover:text-white hover:bg-white/10"
@@ -161,7 +167,9 @@ export default function Navbar({ locale }: NavbarProps) {
                   isLight ? "border-foreground/20" : "border-white/25"
                 } ${
                   locale === "en"
-                    ? "bg-[#7A0D0A] text-white"
+                    ? isLight
+                      ? "bg-[#7A0D0A] text-white"
+                      : "bg-white text-[#7A0D0A]"
                     : isLight
                       ? "text-foreground/60 hover:text-[#7A0D0A] hover:bg-foreground/5"
                       : "text-white/65 hover:text-white hover:bg-white/10"

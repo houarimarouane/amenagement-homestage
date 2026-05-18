@@ -25,16 +25,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
           <p className="text-[#6B6560] text-lg">{t("subtitle")}</p>
         </div>
 
-        <ProjectsGrid
-          projects={projects}
-          locale={locale}
-          translations={{
-            filter_all: t("filter_all"),
-            filter_airbnb: t("filter_airbnb"),
-            filter_renovation: t("filter_renovation"),
-            filter_decoration: t("filter_decoration"),
-          }}
-        />
+        <ProjectsGrid projects={projects} locale={locale} />
       </div>
     </div>
   );
