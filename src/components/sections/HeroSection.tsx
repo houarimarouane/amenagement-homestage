@@ -50,7 +50,7 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
                 <span className="block font-heading text-xl font-medium uppercase leading-[1.12] tracking-[0.05em] text-white sm:text-2xl md:text-3xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
                   {t("title")}
                 </span>
-                <span className="mt-2.5 block font-heading text-2xl font-bold uppercase leading-[1.06] tracking-[0.04em] text-[#7A0D0A] sm:text-3xl md:text-4xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
+                <span className="mt-2.5 block font-heading text-2xl font-bold uppercase leading-[1.06] tracking-[0.04em] text-white sm:text-3xl md:text-4xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">
                   {t("title_price")}
                 </span>
               </h1>

@@ -10,7 +10,7 @@ interface ProjectsPreviewProps {
 export default function ProjectsPreview({ locale }: ProjectsPreviewProps) {
   const t = useTranslations("projects_preview");
   const tNav = useTranslations("nav");
-  const projects = getAllProjects().slice(0, 3);
+  const projects = getAllProjects();
   const projectsHref = locale === "fr" ? "/projets" : "/en/projets";
 
   return (
