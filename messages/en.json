@@ -10,6 +10,7 @@
     "language": "Language"
   },
   "hero": {
+    "title_kicker": "Special offer",
     "title": "Furnish your Airbnb",
     "title_price": "From €7,500",
     "subtitle": "Transform your property into an exceptional Airbnb experience",
@@ -148,7 +149,8 @@
     "testimonial_quote": "\"I handed over the keys to a bare apartment. 4 weeks later it was live and generating revenue.\"",
     "testimonial_author": "Sarah D. — MRE Investor, Paris",
     "cta_sub": "Free first consultation · No commitment · Live worksites available to visit",
-    "cta_form": "My quote",
+    "cta_form_line1": "my",
+    "cta_form_line2": "QUOTE",
     "cta_whatsapp": "Message on WhatsApp",
     "offer_btn_projects": "See our projects"
   },

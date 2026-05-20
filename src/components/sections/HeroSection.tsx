@@ -47,7 +47,10 @@ export default async function HeroSection({ locale }: HeroSectionProps) {
             <div className="mb-10 max-w-2xl">
               {/* Grand titre — service */}
               <h1 className="mb-3 text-balance">
-                <span className="block font-heading text-xl font-medium uppercase leading-[1.12] tracking-[0.05em] text-white sm:text-2xl md:text-3xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
+                <span className="block text-[10px] sm:text-[11px] md:text-xs text-[#F8AD9C] tracking-[0.35em] uppercase">
+                  {t("title_kicker")}
+                </span>
+                <span className="mt-4 block font-heading text-xl font-medium uppercase leading-[1.12] tracking-[0.05em] text-white sm:text-2xl md:text-3xl lg:text-[2.25rem] lg:font-normal lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem]">
                   {t("title")}
                 </span>
                 <span className="mt-2.5 block font-heading text-2xl font-bold uppercase leading-[1.06] tracking-[0.04em] text-white sm:text-3xl md:text-4xl lg:mt-1 lg:text-[2.25rem] lg:normal-case lg:leading-[1.1] lg:tracking-normal xl:text-[2.75rem] [text-shadow:0_1px_3px_rgba(0,0,0,0.35)]">

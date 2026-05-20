@@ -30,9 +30,12 @@ export default function ContactSection() {
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <a
               href="#contact-form"
-              className="bg-white text-[#7A0D0A] px-8 py-4 font-medium text-sm tracking-wide uppercase hover:bg-[#FBF6F1] transition-colors text-center"
+              className="bg-white text-[#7A0D0A] px-8 py-4 font-medium text-sm tracking-wide hover:bg-[#FBF6F1] transition-colors text-center"
             >
-              {tAirbnb("cta_form")}
+              <span className="flex flex-col leading-tight">
+                <span className="normal-case">{tAirbnb("cta_form_line1")}</span>
+                <span className="uppercase">{tAirbnb("cta_form_line2")}</span>
+              </span>
             </a>
             <a
               href="https://wa.me/212661260719"

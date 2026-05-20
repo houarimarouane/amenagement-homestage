@@ -10,6 +10,7 @@
     "language": "Langue"
   },
   "hero": {
+    "title_kicker": "Offre spéciale",
     "title": "Aménagez votre Airbnb",
     "title_price": "À partir de 7 500 €",
     "subtitle": "Transformez votre appartement en expérience Airbnb d'exception et gagnez en visibilité",
@@ -148,7 +149,8 @@
     "testimonial_quote": "« J'ai confié les clés de mon appartement brut. 4 semaines plus tard, il était en ligne et générait des revenus. »",
     "testimonial_author": "Sarah D. — Investisseur MRE, Paris",
     "cta_sub": "Premier échange gratuit · Sans engagement · Chantiers disponibles à la visite",
-    "cta_form": "Par mon devis",
+    "cta_form_line1": "par",
+    "cta_form_line2": "MON DEVIS",
     "cta_whatsapp": "Écrire sur WhatsApp",
     "offer_btn_projects": "Voir nos réalisations"
   },
