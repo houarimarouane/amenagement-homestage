@@ -28,7 +28,7 @@ function HeaderLogo({
   return (
     <Link
       href={`${prefix}/`}
-      className={`flex items-center justify-center shrink-0 ${className ?? ""}`}
+      className={`flex items-center ${className ?? "shrink-0 justify-center"}`}
     >
       <Image
         src={isLight ? "/logo-black.png" : "/logo-white.png"}
@@ -80,39 +80,37 @@ export default function Navbar({ locale }: NavbarProps) {
         }`}
       >
         {/* Mobile : logo à gauche (plus grand), menu à droite */}
-        <div className="lg:hidden flex items-center justify-between h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 gap-3 md:gap-4">
+        <div className="lg:hidden flex items-center justify-between h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6">
           <HeaderLogo
             prefix={prefix}
             isLight={isLight}
-            className="justify-start min-w-0 flex-1"
+            className="min-w-0 flex-1 justify-start"
             imageWidthsClassName="w-[200px] sm:w-[218px] md:w-[228px]"
           />
-          <div className="flex justify-end items-center shrink-0">
-            <button
-              type="button"
-              className="flex h-11 w-11 items-center justify-center -mr-1"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
-              aria-expanded={menuOpen}
-            >
-              <span className="flex w-[22px] flex-col gap-[5px] sm:w-5 sm:gap-1.5">
-                <span
-                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
-                />
-                <span
-                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
-                />
-                <span
-                  className={`block h-0.5 w-full rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
-                />
-              </span>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="flex size-11 shrink-0 items-center justify-center"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+          >
+            <span className="flex w-6 flex-col items-center gap-1.5" aria-hidden>
+              <span
+                className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+              />
+              <span
+                className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+              />
+              <span
+                className={`block h-0.5 w-6 rounded-full transition-all duration-300 ${isLight ? "bg-foreground" : "bg-white"}`}
+              />
+            </span>
+          </button>
         </div>
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between h-20 md:h-[5.5rem] max-w-7xl mx-auto px-4 md:px-6 relative gap-3 md:gap-5">
-          <HeaderLogo prefix={prefix} isLight={isLight} className="z-10 lg:justify-start" />
+          <HeaderLogo prefix={prefix} isLight={isLight} className="z-10 shrink-0 lg:justify-start" />
 
           <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-6 xl:gap-10 flex-wrap max-w-[min(100%,42rem)] pointer-events-none [&_a]:pointer-events-auto">
             {navItems.map((item) => (
