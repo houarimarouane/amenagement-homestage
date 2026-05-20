@@ -107,12 +107,12 @@ export default function ContactSection() {
                   <div>
                     <p className="text-foreground text-sm font-medium mb-1">Instagram</p>
                     <a
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/homestage_ma/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#7A0D0A] text-sm hover:text-[#7A0D0A] transition-colors"
                     >
-                      @homestage.ma
+                      @homestage_ma
                     </a>
                   </div>
                 </div>

@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
-/** Profils à affiner si besoin (pages officielles Homestage). */
 const SOCIAL = {
-  facebook: "https://www.facebook.com",
-  instagram: "https://www.instagram.com",
+  facebook: "https://www.facebook.com/homestagemorocco",
+  instagram: "https://www.instagram.com/homestage_ma/",
   whatsapp: "https://wa.me/212661260719",
 } as const;
 
