@@ -21,10 +21,27 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const FAVICON_VERSION = "2";
+
 export const metadata: Metadata = {
   title: "HOMESTAGE X AIRBNB - SETUP & STAGING",
   description:
     "Homestage : aménagement, rénovation et homestaging pour Airbnb à Marrakech. Conception, travaux, mobilier, photos pro et optimisation d'annonce — accompagnement clé-en-main pour propriétaires et investisseurs.",
+  icons: {
+    icon: [
+      {
+        url: `/favicon-32.png?v=${FAVICON_VERSION}`,
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: `/favicon.ico?v=${FAVICON_VERSION}`,
+        sizes: "any",
+      },
+    ],
+    shortcut: `/favicon.ico?v=${FAVICON_VERSION}`,
+    apple: `/apple-touch-icon.png?v=${FAVICON_VERSION}`,
+  },
 };
 
 export default function RootLayout({
